@@ -223,7 +223,7 @@ public class ItemUtils {
 				.getConfigurationSection("durability");
 		ConfigurationSection specific = durability
 				.getConfigurationSection((ItemLookup.lt.get(i.getType()).isArmor) ? "armor"
-						: "tool");
+						: "tools");
 		int dur = specific.getInt(q.name().toLowerCase());
 		List<String> lore = im.getLore();
 		if (lore == null)
@@ -233,7 +233,7 @@ public class ItemUtils {
 
 		im.setLore(lore);
 		i.setItemMeta(im);
-		i.setDurability(Short.MIN_VALUE);
+		i.setDurability((short) 0);
 	}
 
 	public static ItemStack damageItem(ItemStack i) {
@@ -253,6 +253,8 @@ public class ItemUtils {
 				if (newDur > 0) {
 					int maxDur = Integer.parseInt(lore.get(n).split(" ")[1]
 							.split("/")[1]);
+					i.setDurability((short) (((double) (maxDur - newDur) / (double) maxDur) * i
+							.getType().getMaxDurability()));
 					lore.set(n, "Durability: " + newDur + "/" + maxDur);
 				} else {
 					return null;
