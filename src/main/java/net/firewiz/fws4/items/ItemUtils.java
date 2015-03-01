@@ -6,6 +6,7 @@ import java.util.List;
 import net.firewiz.fws4.FWS4;
 
 import org.bukkit.Material;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -13,42 +14,52 @@ public class ItemUtils {
 
 	static String[][] enchSuffixes = {
 			{ "of Strength", "of Stamina", "of Agility", "of Power",
-			"of Spirit" },
+					"of Spirit" },
 			{ "of the Cheetah", "of the Guardian", "of the Deer",
-			"of the Eagle", "of the Horse" },
+					"of the Eagle", "of the Horse" },
 			{ "of the Bear", "of the Elephant", "of the Lion", "of the Ox",
-			"of the Whale" },
+					"of the Whale" },
 			{ "of the Nether", "of the Wither", "of the Fireflash",
-			"of the Squid", "of the Ghast" },
+					"of the Squid", "of the Ghast" },
 			{ "of the Hawk", "of Invulnerability", "of the Dolphin",
-			"of the Vulture", "of the Owl" } };
+					"of the Vulture", "of the Owl" } };
 
 	public static ItemStack generateCraftedItem(int q, Material itemType) {
 		ItemStack i = new ItemStack(itemType, 1);
-		if (itemType.toString().contains("WOOD"))
-			q += 0;
-		else if (itemType.toString().contains("STONE"))
-			q += 10;
-		else if (itemType.toString().contains("IRON"))
-			q += 20;
-		else if (itemType.toString().contains("GOLD"))
-			q += 20;
-		else if (itemType.toString().contains("DIAMOND")) q += 50;
 
-		int q_final = (int) ((Math.log(q) * q) / (3 * Math.log(300))
-				+ FWS4.rand.nextInt(25));
-		if (q_final < 0) q_final = 0;
+		ConfigurationSection items = FWS4.instance.getConfig()
+				.getConfigurationSection("items");
+		ConfigurationSection matBonuses = items
+				.getConfigurationSection("matBonuses");
+		ConfigurationSection qfinalcfg = items
+				.getConfigurationSection("q_final");
+
+		if (itemType.toString().contains("WOOD"))
+			q += matBonuses.getInt("wood");
+		else if (itemType.toString().contains("STONE"))
+			q += matBonuses.getInt("stone");
+		else if (itemType.toString().contains("IRON"))
+			q += matBonuses.getInt("iron");
+		else if (itemType.toString().contains("GOLD"))
+			q += matBonuses.getInt("gold");
+		else if (itemType.toString().contains("DIAMOND"))
+			q += matBonuses.getInt("diamond");
+
+		int q_final = (int) ((Math.log(q) * q) / (3 * Math.log(300)) + FWS4.rand
+				.nextInt(25));
+		if (q_final < 0)
+			q_final = 0;
 
 		ItemQuality iq;
-		if (q_final < 11)
+		if (q_final < qfinalcfg.getInt("poor"))
 			iq = ItemQuality.POOR;
-		else if (q_final < 21)
+		else if (q_final < qfinalcfg.getInt("common"))
 			iq = ItemQuality.COMMON;
-		else if (q_final < 41)
+		else if (q_final < qfinalcfg.getInt("uncommon"))
 			iq = ItemQuality.UNCOMMON;
-		else if (q_final < 76)
+		else if (q_final < qfinalcfg.getInt("rare"))
 			iq = ItemQuality.RARE;
-		else if (q_final < 91)
+		else if (q_final < qfinalcfg.getInt("epic"))
 			iq = ItemQuality.EPIC;
 		else
 			iq = ItemQuality.LEGENDARY;
@@ -76,60 +87,33 @@ public class ItemUtils {
 	}
 
 	static void enchantItemStack(ItemStack i, ItemQuality q) {
+
 		boolean hasEnchant1 = false, hasEnchant2 = false;
 		int eid1, eid2 = -1;
 		ItemMeta im = i.getItemMeta();
 		int percent = 0;
-		switch (q) {
-		case POOR:
-			hasEnchant1 = FWS4.rand.nextInt(1000) < 1;
-			percent = 1;
-			break;
-		case COMMON:
-			hasEnchant1 = FWS4.rand.nextInt(100) < 10;
-			percent = FWS4.rand.nextInt(1) + 1;
-			break;
-		case UNCOMMON:
-			hasEnchant1 = FWS4.rand.nextInt(100) < 50;
-			percent = (int) triangular(1, 3, 2);
-			break;
-		case RARE:
-			hasEnchant1 = FWS4.rand.nextInt(100) < 75;
-			percent = (int) triangular(2, 4, 3);
-			break;
-		case EPIC:
-			percent = (int) triangular(3, 5, 6);
-			hasEnchant1 = true;
-			break;
-		case LEGENDARY:
-			hasEnchant1 = true;
-			percent = (int) triangular(4, 7, 10);
-			break;
-		}
-		if (!hasEnchant1) return;
-		switch (q) {
-		case POOR:
-			hasEnchant2 = FWS4.rand.nextInt(1000) < 1;
-			break;
-		case COMMON:
-			hasEnchant2 = FWS4.rand.nextInt(1000) < 1;
-			break;
-		case UNCOMMON:
-			hasEnchant2 = FWS4.rand.nextInt(100) < 1;
-			break;
-		case RARE:
-			hasEnchant2 = FWS4.rand.nextInt(100) < 20;
-			break;
-		case EPIC:
-			hasEnchant2 = FWS4.rand.nextInt(100) < 50;
-			break;
-		case LEGENDARY:
-			hasEnchant2 = true;
-			break;
-		}
+		ConfigurationSection items = FWS4.instance.getConfig()
+				.getConfigurationSection("items");
+		ConfigurationSection enchant = items.getConfigurationSection("enchant");
+		ConfigurationSection e1 = enchant.getConfigurationSection("e1");
+		ConfigurationSection e1Rate = e1.getConfigurationSection("rate");
+		ConfigurationSection e1Power = e1.getConfigurationSection("power");
+		ConfigurationSection e2 = enchant.getConfigurationSection("e2");
+		ConfigurationSection e2Rate = e2.getConfigurationSection("rate");
+		hasEnchant1 = FWS4.rand.nextInt(1000) < e1Rate.getInt(q.toString()
+				.toLowerCase());
+		if (!hasEnchant1)
+			return;
+		percent = (int) triangular(
+				e1Power.getList(q.name().toLowerCase()).toArray(new Double[0])[0],
+				e1Power.getList(q.name().toLowerCase()).toArray(new Double[0])[1],
+				e1Power.getList(q.name().toLowerCase()).toArray(new Double[0])[2]);
+		hasEnchant2 = FWS4.rand.nextInt(1000) < e2Rate.getInt(q.toString()
+				.toLowerCase());
 
 		List<String> lore = im.getLore();
-		if (lore == null) lore = new LinkedList<String>();
+		if (lore == null)
+			lore = new LinkedList<String>();
 
 		eid1 = FWS4.rand.nextInt(5);
 		switch (eid1) {

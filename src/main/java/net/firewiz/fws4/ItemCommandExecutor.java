@@ -3,7 +3,6 @@ package net.firewiz.fws4;
 import java.util.LinkedList;
 import java.util.List;
 
-import net.firewiz.fws4.items.ItemQuality;
 import net.firewiz.fws4.items.Stats;
 import net.firewiz.fws4.items.StatsList;
 
@@ -20,7 +19,8 @@ public class ItemCommandExecutor implements CommandExecutor {
 	@Override
 	public boolean onCommand(CommandSender sender, Command command,
 			String label, String[] args) {
-		if (!(sender instanceof Player)) return false;
+		if (!(sender instanceof Player))
+			return false;
 		Player p = (Player) sender;
 		switch (label.toLowerCase()) {
 		case "craftstats":
@@ -41,21 +41,29 @@ public class ItemCommandExecutor implements CommandExecutor {
 			for (String s : playerSkills.getKeys(false)) {
 				int q = playerSkills.getInt(s);
 				p.sendMessage("Skill in " + s + ": " + q);
-				for (int i : new int[] { 0, 10, 20, 50 }) {
+				ConfigurationSection items = FWS4.instance.getConfig()
+						.getConfigurationSection("items");
+				ConfigurationSection matBonuses = items
+						.getConfigurationSection("matBonuses");
+				ConfigurationSection qfinalcfg = items
+						.getConfigurationSection("q_final");
+				for (int i : new int[] { matBonuses.getInt("wood"),
+						matBonuses.getInt("stone"), matBonuses.getInt("iron"),
+						matBonuses.getInt("gold"), matBonuses.getInt("diamond") }) {
 					String msg = "";
 					int q_base = (int) ((Math.log(q) * q) / (3 * Math.log(300)))
 							+ i;
 					char cc;
 					for (int j = 0; j < 25; j++) {
-						if (q_base + j < 11)
+						if (q_base + j < qfinalcfg.getInt("poor"))
 							cc = '7';
-						else if (q_base + j < 21)
+						else if (q_base + j < qfinalcfg.getInt("common"))
 							cc = 'f';
-						else if (q_base + j < 41)
+						else if (q_base + j < qfinalcfg.getInt("uncommon"))
 							cc = '2';
-						else if (q_base + j < 76)
+						else if (q_base + j < qfinalcfg.getInt("rare"))
 							cc = '1';
-						else if (q_base + j < 91)
+						else if (q_base + j < qfinalcfg.getInt("epic"))
 							cc = '5';
 						else
 							cc = '6';
@@ -70,7 +78,8 @@ public class ItemCommandExecutor implements CommandExecutor {
 				return true;
 			String type = p.getItemInHand().getType().toString().split("_")[1];
 			for (ItemStack i : p.getInventory()) {
-				if (i == null) continue;
+				if (i == null)
+					continue;
 				if (i.getType().toString().split("_").length > 1
 						&& (i.getType().toString().split("_")[1]
 								.equalsIgnoreCase(type))) {
