@@ -2,6 +2,7 @@ package net.firewiz.fws4;
 
 import java.util.logging.Level;
 
+import net.firewiz.fws4.items.ItemUtils;
 import net.firewiz.fws4.items.Stats;
 import net.firewiz.fws4.items.StatsList;
 
@@ -35,8 +36,7 @@ public class EventsListener implements Listener {
 		pl = p;
 	}
 
-	@EventHandler(
-			priority = EventPriority.NORMAL)
+	@EventHandler(priority = EventPriority.NORMAL)
 	public void onCreatureSpawn(CreatureSpawnEvent evt) {
 		if (evt.getEntityType() == EntityType.PIG_ZOMBIE) {
 			if (evt.getLocation().getWorld().getBlockAt(evt.getLocation())
@@ -49,17 +49,14 @@ public class EventsListener implements Listener {
 				.getHealth());
 	}
 
-	@EventHandler(
-			priority = EventPriority.NORMAL)
+	@EventHandler(priority = EventPriority.NORMAL)
 	public void onEntityDeath(EntityDeathEvent evt) {
 		if (evt.getEntity() instanceof LivingEntity) {
-			LivingEntity entity = (LivingEntity) evt.getEntity();
-			HealthBar.removeHealthBar(entity);
+			evt.getDrops().addAll(ItemUtils.dropItemsFor(evt.getEntity()));
 		}
 	}
 
-	@EventHandler(
-			priority = EventPriority.NORMAL)
+	@EventHandler(priority = EventPriority.NORMAL)
 	public void onEntityDamage(EntityDamageEvent evt) {
 		if (evt.getEntity() instanceof LivingEntity) {
 			LivingEntity entity = (LivingEntity) evt.getEntity();
@@ -118,8 +115,7 @@ public class EventsListener implements Listener {
 
 	}
 
-	@EventHandler(
-			priority = EventPriority.NORMAL)
+	@EventHandler(priority = EventPriority.NORMAL)
 	public void onEntityRegainHealth(EntityRegainHealthEvent evt) {
 		if (evt.getEntity() instanceof LivingEntity) {
 			LivingEntity e = (LivingEntity) evt.getEntity();
@@ -130,8 +126,7 @@ public class EventsListener implements Listener {
 		}
 	}
 
-	@EventHandler(
-			priority = EventPriority.NORMAL)
+	@EventHandler(priority = EventPriority.NORMAL)
 	public void onVehicleExit(VehicleExitEvent e) {
 		if (e.getExited().getType() == EntityType.DROPPED_ITEM) {
 			e.setCancelled(true);
@@ -139,8 +134,7 @@ public class EventsListener implements Listener {
 		}
 	}
 
-	@EventHandler(
-			priority = EventPriority.NORMAL)
+	@EventHandler(priority = EventPriority.NORMAL)
 	public void onPlayerJoin(PlayerJoinEvent e) {
 		HealthBar.addHealthBar(e.getPlayer(), e.getPlayer().getHealth());
 		try {
@@ -154,15 +148,13 @@ public class EventsListener implements Listener {
 		Stats.applyStats(e.getPlayer());
 	}
 
-	@EventHandler(
-			priority = EventPriority.NORMAL)
+	@EventHandler(priority = EventPriority.NORMAL)
 	public void onPlayerQuit(PlayerQuitEvent e) {
 		HealthBar.removeHealthBar(e.getPlayer());
 		FWS4.chatManager.leaveAllChannels(e.getPlayer());
 	}
 
-	@EventHandler(
-			priority = EventPriority.NORMAL)
+	@EventHandler(priority = EventPriority.NORMAL)
 	public void onPlayerChat(AsyncPlayerChatEvent e) {
 		Player p = e.getPlayer();
 		if (p.getMetadata("ChatChannel").size() == 0) {
@@ -174,11 +166,11 @@ public class EventsListener implements Listener {
 		e.setCancelled(true);
 	}
 
-//	@EventHandler(
-//			priority = EventPriority.NORMAL)
-//	public void onItemDespawn(ItemDespawnEvent e) {
-//		if (e.getEntity().getItemStack().getType() == Material.BEDROCK) {
-//			e.setCancelled(true);
-//		}
-//	}
+	// @EventHandler(
+	// priority = EventPriority.NORMAL)
+	// public void onItemDespawn(ItemDespawnEvent e) {
+	// if (e.getEntity().getItemStack().getType() == Material.BEDROCK) {
+	// e.setCancelled(true);
+	// }
+	// }
 }

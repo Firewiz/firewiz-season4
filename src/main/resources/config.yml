@@ -53,3 +53,13 @@ items:
         rare: 500
         epic: 750
         legendary: 1000
+  loot:
+    poor:
+      rate: 300
+    rare:
+      rate: 200
+      types:
+        - 11
+        - 51
+        - 76
+        - 91
