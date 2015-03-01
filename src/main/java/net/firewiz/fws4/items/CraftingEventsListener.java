@@ -1,6 +1,7 @@
 package net.firewiz.fws4.items;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 import net.firewiz.fws4.FWS4;
@@ -12,6 +13,10 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.CraftItemEvent;
+import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.PlayerInventory;
+import org.bukkit.inventory.meta.ItemMeta;
 
 public class CraftingEventsListener implements Listener {
 	Material[] crafted = { Material.CHAINMAIL_BOOTS,
@@ -33,8 +38,7 @@ public class CraftingEventsListener implements Listener {
 			Material.WOOD_AXE, Material.WOOD_PICKAXE, Material.WOOD_SPADE,
 			Material.WOOD_SWORD };
 
-	@EventHandler(
-			priority = EventPriority.NORMAL)
+	@EventHandler(priority = EventPriority.NORMAL)
 	public void onCraftItem(CraftItemEvent e) {
 		if (Arrays.asList(crafted).contains(
 				e.getInventory().getResult().getType())) {
@@ -73,6 +77,23 @@ public class CraftingEventsListener implements Listener {
 						"§9Your skill has increased to " + q, p);
 			}
 			FWS4.instance.saveConfig();
+		}
+	}
+
+	@EventHandler(priority = EventPriority.NORMAL)
+	public void onInventoryClick(InventoryClickEvent e) {
+		if (!(e.getInventory() instanceof PlayerInventory)) {
+			ItemStack i = e.getCurrentItem();
+			ItemMeta im = i.getItemMeta();
+			if(im == null) return;
+			if (im.hasLore()) {
+				List<String> l = im.getLore();
+				while (l.contains("§6Equipped"))
+					l.remove("§6Equipped");
+				im.setLore(l);
+				i.setItemMeta(im);
+			}
+
 		}
 	}
 }
