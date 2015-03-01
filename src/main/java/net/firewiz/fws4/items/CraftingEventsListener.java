@@ -1,6 +1,7 @@
 package net.firewiz.fws4.items;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 import net.firewiz.fws4.FWS4;
@@ -15,7 +16,10 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.inventory.CraftItemEvent;
+import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.PlayerInventory;
+import org.bukkit.inventory.meta.ItemMeta;
 
 public class CraftingEventsListener implements Listener {
 	static Material[] crafted = { Material.CHAINMAIL_BOOTS,
@@ -102,6 +106,21 @@ public class CraftingEventsListener implements Listener {
 						.getDamager();
 				ItemStack hand = p.getItemInHand();
 				p.setItemInHand(ItemUtils.damageItem(hand));
+			}
+		}
+	}
+	
+	public void onInventoryClick(InventoryClickEvent e) {
+		if (!(e.getInventory() instanceof PlayerInventory)) {
+			ItemStack i = e.getCurrentItem();
+			ItemMeta im = i.getItemMeta();
+			if(im == null) return;
+			if (im.hasLore()) {
+				List<String> l = im.getLore();
+				while (l.contains("§6Equipped"))
+					l.remove("§6Equipped");
+				im.setLore(l);
+				i.setItemMeta(im);
 			}
 		}
 	}

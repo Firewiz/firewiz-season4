@@ -57,10 +57,14 @@ public class ItemLookup {
 		lt.put(Material.CARROT_STICK, new ItemData("Carrot on a Stick"));
 		lt.put(Material.CAULDRON, new ItemData("Cauldron (block)"));
 		lt.put(Material.CAULDRON_ITEM, new ItemData("Cauldron"));
-		lt.put(Material.CHAINMAIL_BOOTS, new ItemData("Chain Boots"));
-		lt.put(Material.CHAINMAIL_CHESTPLATE, new ItemData("Chain Chestplate"));
-		lt.put(Material.CHAINMAIL_HELMET, new ItemData("Chain Helmet"));
-		lt.put(Material.CHAINMAIL_LEGGINGS, new ItemData("Chain Leggings"));
+		lt.put(Material.CHAINMAIL_BOOTS, new ItemData("Chain Boots", false,
+				true));
+		lt.put(Material.CHAINMAIL_CHESTPLATE, new ItemData("Chain Chestplate",
+				false, true));
+		lt.put(Material.CHAINMAIL_HELMET, new ItemData("Chain Helmet", false,
+				true));
+		lt.put(Material.CHAINMAIL_LEGGINGS, new ItemData("Chain Leggings",
+				false, true));
 		lt.put(Material.CHEST, new ItemData("Chest"));
 		lt.put(Material.CLAY, new ItemData("Clay"));
 		lt.put(Material.CLAY_BALL, new ItemData("Clay Ball"));
@@ -73,7 +77,8 @@ public class ItemLookup {
 		lt.put(Material.COBBLE_WALL, new ItemData("Cobblestone Wall"));
 		lt.put(Material.COCOA, new ItemData("Cocoa"));
 		lt.put(Material.COMMAND, new ItemData("Command Block"));
-		lt.put(Material.COMMAND_MINECART, new ItemData("Command Block Minecart"));
+		lt.put(Material.COMMAND_MINECART,
+				new ItemData("Command Block Minecart"));
 		lt.put(Material.COMPASS, new ItemData("Compass"));
 		lt.put(Material.COOKED_BEEF, new ItemData("Cooked Beef"));
 		lt.put(Material.COOKED_CHICKEN, new ItemData("Cooked Chicken"));
@@ -85,27 +90,37 @@ public class ItemLookup {
 		lt.put(Material.DARK_OAK_DOOR, new ItemData("Dark Oak Door (block)"));
 		lt.put(Material.DARK_OAK_DOOR_ITEM, new ItemData("Dark Oak Door"));
 		lt.put(Material.DARK_OAK_FENCE, new ItemData("Dark Oak Fence"));
-		lt.put(Material.DARK_OAK_FENCE_GATE, new ItemData("Dark Oak Fence Gate"));
+		lt.put(Material.DARK_OAK_FENCE_GATE,
+				new ItemData("Dark Oak Fence Gate"));
 		lt.put(Material.DARK_OAK_STAIRS, new ItemData("Dark Oak Stairs"));
 		lt.put(Material.DAYLIGHT_DETECTOR, new ItemData("Daylight Detector"));
-		lt.put(Material.DAYLIGHT_DETECTOR_INVERTED, new ItemData("Daylight Detector (inverted)"));
+		lt.put(Material.DAYLIGHT_DETECTOR_INVERTED, new ItemData(
+				"Daylight Detector (inverted)"));
 		lt.put(Material.DEAD_BUSH, new ItemData("Dead Bush"));
 		lt.put(Material.DETECTOR_RAIL, new ItemData("Detector Rail"));
 		lt.put(Material.DIAMOND, new ItemData("Diamond"));
-		lt.put(Material.DIAMOND_AXE, new ItemData("Diamond Axe"));
+		lt.put(Material.DIAMOND_AXE, new ItemData("Diamond Axe", true, false));
 		lt.put(Material.DIAMOND_BARDING, new ItemData("Diamond Horse Armor"));
 		lt.put(Material.DIAMOND_BLOCK, new ItemData("Block of Diamond"));
-		lt.put(Material.DIAMOND_BOOTS, new ItemData("Diamond Boots"));
-		lt.put(Material.DIAMOND_CHESTPLATE, new ItemData("Diamond Chestplate"));
-		lt.put(Material.DIAMOND_HELMET, new ItemData("Diamond Helmet"));
+		lt.put(Material.DIAMOND_BOOTS, new ItemData("Diamond Boots", false,
+				true));
+		lt.put(Material.DIAMOND_CHESTPLATE, new ItemData("Diamond Chestplate",
+				false, true));
+		lt.put(Material.DIAMOND_HELMET, new ItemData("Diamond Helmet", false,
+				true));
 		lt.put(Material.DIAMOND_HOE, new ItemData("Diamond Hoe"));
-		lt.put(Material.DIAMOND_LEGGINGS, new ItemData("Diamond Leggings"));
+		lt.put(Material.DIAMOND_LEGGINGS, new ItemData("Diamond Leggings",
+				false, true));
 		lt.put(Material.DIAMOND_ORE, new ItemData("Diamond Ore"));
-		lt.put(Material.DIAMOND_PICKAXE, new ItemData("Diamond Pickaxe"));
-		lt.put(Material.DIAMOND_SPADE, new ItemData("Diamond Shovel"));
-		lt.put(Material.DIAMOND_SWORD, new ItemData("Diamond Sword"));
+		lt.put(Material.DIAMOND_PICKAXE, new ItemData("Diamond Pickaxe", true,
+				false));
+		lt.put(Material.DIAMOND_SPADE, new ItemData("Diamond Shovel", true,
+				false));
+		lt.put(Material.DIAMOND_SWORD, new ItemData("Diamond Sword", true,
+				false));
 		lt.put(Material.DIODE, new ItemData("Redstone Repeater"));
-		lt.put(Material.DIODE_BLOCK_OFF, new ItemData("Redstone Repeater (off)"));
+		lt.put(Material.DIODE_BLOCK_OFF,
+				new ItemData("Redstone Repeater (off)"));
 		lt.put(Material.DIODE_BLOCK_ON, new ItemData("Redstone Repeater (on)"));
 		lt.put(Material.DIRT, new ItemData("Dirt"));
 		lt.put(Material.DISPENSER, new ItemData("Dispenser"));
@@ -132,7 +147,8 @@ public class ItemLookup {
 		lt.put(Material.FEATHER, new ItemData("Feather"));
 		lt.put(Material.FENCE, new ItemData("Fence"));
 		lt.put(Material.FENCE_GATE, new ItemData("Fence Gate"));
-		lt.put(Material.FERMENTED_SPIDER_EYE, new ItemData("Fermented Spider Eye"));
+		lt.put(Material.FERMENTED_SPIDER_EYE, new ItemData(
+				"Fermented Spider Eye"));
 		lt.put(Material.FIRE, new ItemData("Fire"));
 		lt.put(Material.FIREBALL, new ItemData("Fire Charge"));
 		lt.put(Material.FIREWORK, new ItemData("Firework"));
@@ -146,27 +162,31 @@ public class ItemLookup {
 		lt.put(Material.GHAST_TEAR, new ItemData("Ghast Tear"));
 		lt.put(Material.GLASS, new ItemData("Glass"));
 		lt.put(Material.GLASS_BOTTLE, new ItemData("Glass Bottle"));
-		lt.put(Material.GLOWING_REDSTONE_ORE, new ItemData("Redstone Ore (lit)"));
+		lt.put(Material.GLOWING_REDSTONE_ORE,
+				new ItemData("Redstone Ore (lit)"));
 		lt.put(Material.GLOWSTONE, new ItemData("Glowstone"));
 		lt.put(Material.GLOWSTONE_DUST, new ItemData("Glowstone Dust"));
-		lt.put(Material.GOLD_AXE, new ItemData("Golden Axe"));
+		lt.put(Material.GOLD_AXE, new ItemData("Golden Axe", true, false));
 		lt.put(Material.GOLD_BARDING, new ItemData("Golden Horse Armor"));
 		lt.put(Material.GOLD_BLOCK, new ItemData("Golden Block"));
-		lt.put(Material.GOLD_BOOTS, new ItemData("Golden Boots"));
-		lt.put(Material.GOLD_CHESTPLATE, new ItemData("Goldn Chestplate"));
+		lt.put(Material.GOLD_BOOTS, new ItemData("Golden Boots", false, true));
+		lt.put(Material.GOLD_CHESTPLATE, new ItemData("Golden Chestplate",
+				false, true));
 		lt.put(Material.GOLDEN_APPLE, new ItemData("Golden Apple"));
 		lt.put(Material.GOLDEN_CARROT, new ItemData("Golden Carrot"));
-		lt.put(Material.GOLD_HELMET, new ItemData("Golden Helmet"));
+		lt.put(Material.GOLD_HELMET, new ItemData("Golden Helmet", false, true));
 		lt.put(Material.GOLD_HOE, new ItemData("Golden Hoe"));
 		lt.put(Material.GOLD_INGOT, new ItemData("Gold Ingot"));
-		lt.put(Material.GOLD_LEGGINGS, new ItemData("Golden Leggings"));
+		lt.put(Material.GOLD_LEGGINGS, new ItemData("Golden Leggings", false,
+				true));
 		lt.put(Material.GOLD_NUGGET, new ItemData("Gold Nugget"));
 		lt.put(Material.GOLD_ORE, new ItemData("Gold Ore"));
-		lt.put(Material.GOLD_PICKAXE, new ItemData("Golden Pickaxe"));
-		lt.put(Material.GOLD_PLATE, new ItemData("Gold Plate"));
+		lt.put(Material.GOLD_PICKAXE, new ItemData("Golden Pickaxe", true,
+				false));
+		lt.put(Material.GOLD_PLATE, new ItemData("Gold Pressure Plate"));
 		lt.put(Material.GOLD_RECORD, new ItemData("Gold Record"));
-		lt.put(Material.GOLD_SPADE, new ItemData("Golden Shovel"));
-		lt.put(Material.GOLD_SWORD, new ItemData("Golden Sword"));
+		lt.put(Material.GOLD_SPADE, new ItemData("Golden Shovel", true, false));
+		lt.put(Material.GOLD_SWORD, new ItemData("Golden Sword", true, false));
 		lt.put(Material.GRASS, new ItemData("Grass"));
 		lt.put(Material.GRAVEL, new ItemData("Gravel"));
 		lt.put(Material.GREEN_RECORD, new ItemData("Green Record"));
@@ -179,23 +199,25 @@ public class ItemLookup {
 		lt.put(Material.HUGE_MUSHROOM_2, new ItemData("Huge Mushroom"));
 		lt.put(Material.ICE, new ItemData("Ice"));
 		lt.put(Material.INK_SACK, new ItemData("Ink Sac"));
-		lt.put(Material.IRON_AXE, new ItemData("Iron Axe"));
+		lt.put(Material.IRON_AXE, new ItemData("Iron Axe", true, false));
 		lt.put(Material.IRON_BARDING, new ItemData("Iron Horse Armor"));
 		lt.put(Material.IRON_BLOCK, new ItemData("Block of Iron"));
-		lt.put(Material.IRON_BOOTS, new ItemData("Iron Boots"));
-		lt.put(Material.IRON_CHESTPLATE, new ItemData("Iron Chestplate"));
+		lt.put(Material.IRON_BOOTS, new ItemData("Iron Boots", false, true));
+		lt.put(Material.IRON_CHESTPLATE, new ItemData("Iron Chestplate", false,
+				true));
 		lt.put(Material.IRON_DOOR, new ItemData("Iron Door"));
 		lt.put(Material.IRON_DOOR_BLOCK, new ItemData("Iron Door (block)"));
 		lt.put(Material.IRON_FENCE, new ItemData("Iron Bars"));
-		lt.put(Material.IRON_HELMET, new ItemData("Iron Helmet"));
+		lt.put(Material.IRON_HELMET, new ItemData("Iron Helmet", false, true));
 		lt.put(Material.IRON_HOE, new ItemData("Iron Hoe"));
 		lt.put(Material.IRON_INGOT, new ItemData("Iron Ingot"));
-		lt.put(Material.IRON_LEGGINGS, new ItemData("Iron Leggings"));
+		lt.put(Material.IRON_LEGGINGS, new ItemData("Iron Leggings", false,
+				true));
 		lt.put(Material.IRON_ORE, new ItemData("Iron Ore"));
-		lt.put(Material.IRON_PICKAXE, new ItemData("Iron Pickaxe"));
-		lt.put(Material.IRON_PLATE, new ItemData("Iron Plate"));
-		lt.put(Material.IRON_SPADE, new ItemData("Iron Shovel"));
-		lt.put(Material.IRON_SWORD, new ItemData("Iron Sword"));
+		lt.put(Material.IRON_PICKAXE, new ItemData("Iron Pickaxe", true, false));
+		lt.put(Material.IRON_PLATE, new ItemData("Iron Pressure Plate"));
+		lt.put(Material.IRON_SPADE, new ItemData("Iron Shovel", true, false));
+		lt.put(Material.IRON_SWORD, new ItemData("Iron Sword", true, false));
 		lt.put(Material.IRON_TRAPDOOR, new ItemData("Iron Trapdoor"));
 		lt.put(Material.ITEM_FRAME, new ItemData("Item Frame"));
 		lt.put(Material.JACK_O_LANTERN, new ItemData("Jack o' Lantern"));
@@ -203,7 +225,8 @@ public class ItemLookup {
 		lt.put(Material.JUNGLE_DOOR, new ItemData("Jungle Wood Door (block)"));
 		lt.put(Material.JUNGLE_DOOR_ITEM, new ItemData("Jungle Wood Door"));
 		lt.put(Material.JUNGLE_FENCE, new ItemData("Jungle Wood Fence"));
-		lt.put(Material.JUNGLE_FENCE_GATE, new ItemData("Jungle Wood Fence Gate"));
+		lt.put(Material.JUNGLE_FENCE_GATE, new ItemData(
+				"Jungle Wood Fence Gate"));
 		lt.put(Material.JUNGLE_WOOD_STAIRS, new ItemData("Jungle Wood Stairs"));
 		lt.put(Material.LADDER, new ItemData("Ladder"));
 		lt.put(Material.LAPIS_BLOCK, new ItemData("Block of Lapis"));
@@ -212,10 +235,14 @@ public class ItemLookup {
 		lt.put(Material.LAVA_BUCKET, new ItemData("Lava Bucket"));
 		lt.put(Material.LEASH, new ItemData("Leash"));
 		lt.put(Material.LEATHER, new ItemData("Leather"));
-		lt.put(Material.LEATHER_BOOTS, new ItemData("Leather Boots"));
-		lt.put(Material.LEATHER_CHESTPLATE, new ItemData("Leather Chestplate"));
-		lt.put(Material.LEATHER_HELMET, new ItemData("Leather Hat"));
-		lt.put(Material.LEATHER_LEGGINGS, new ItemData("Leather Pants"));
+		lt.put(Material.LEATHER_BOOTS, new ItemData("Leather Boots", false,
+				true));
+		lt.put(Material.LEATHER_CHESTPLATE, new ItemData("Leather Chestplate",
+				false, true));
+		lt.put(Material.LEATHER_HELMET,
+				new ItemData("Leather Hat", false, true));
+		lt.put(Material.LEATHER_LEGGINGS, new ItemData("Leather Pants", false,
+				true));
 		lt.put(Material.LEAVES, new ItemData("Leaves"));
 		lt.put(Material.LEAVES_2, new ItemData("Leaves"));
 		lt.put(Material.LEVER, new ItemData("Lever"));
@@ -240,7 +267,8 @@ public class ItemLookup {
 		lt.put(Material.NAME_TAG, new ItemData("Name Tag"));
 		lt.put(Material.NETHER_BRICK, new ItemData("Nether Bricks"));
 		lt.put(Material.NETHER_BRICK_ITEM, new ItemData("Nether Brick"));
-		lt.put(Material.NETHER_BRICK_STAIRS, new ItemData("Nether Brick Stairs"));
+		lt.put(Material.NETHER_BRICK_STAIRS,
+				new ItemData("Nether Brick Stairs"));
 		lt.put(Material.NETHER_FENCE, new ItemData("Nether Brick Fence"));
 		lt.put(Material.NETHERRACK, new ItemData("Netherrack"));
 		lt.put(Material.NETHER_STALK, new ItemData("Nether Wart"));
@@ -264,7 +292,8 @@ public class ItemLookup {
 		lt.put(Material.POWERED_MINECART, new ItemData("Minecart with Furnace"));
 		lt.put(Material.POWERED_RAIL, new ItemData("Powered Rail"));
 		lt.put(Material.PRISMARINE, new ItemData("Prismarine"));
-		lt.put(Material.PRISMARINE_CRYSTALS, new ItemData("Prismarine Crystals"));
+		lt.put(Material.PRISMARINE_CRYSTALS,
+				new ItemData("Prismarine Crystals"));
 		lt.put(Material.PRISMARINE_SHARD, new ItemData("Prismarine Shard"));
 		lt.put(Material.PUMPKIN, new ItemData("Pumpkin"));
 		lt.put(Material.PUMPKIN_PIE, new ItemData("Pumpkin Pie"));
@@ -295,16 +324,19 @@ public class ItemLookup {
 		lt.put(Material.RED_MUSHROOM, new ItemData("Mushroom"));
 		lt.put(Material.RED_ROSE, new ItemData("Poppy"));
 		lt.put(Material.RED_SANDSTONE, new ItemData("Red Sandstone"));
-		lt.put(Material.RED_SANDSTONE_STAIRS, new ItemData("Red Sandstone Stairs"));
+		lt.put(Material.RED_SANDSTONE_STAIRS, new ItemData(
+				"Red Sandstone Stairs"));
 		lt.put(Material.REDSTONE, new ItemData("Redstone Dust"));
 		lt.put(Material.REDSTONE_BLOCK, new ItemData("Block of Redstone"));
 		lt.put(Material.REDSTONE_COMPARATOR, new ItemData("Comparator"));
-		lt.put(Material.REDSTONE_COMPARATOR_OFF, new ItemData("Comparator (off)"));
+		lt.put(Material.REDSTONE_COMPARATOR_OFF, new ItemData(
+				"Comparator (off)"));
 		lt.put(Material.REDSTONE_COMPARATOR_ON, new ItemData("Comparator (on)"));
 		lt.put(Material.REDSTONE_LAMP_OFF, new ItemData("Redstone Lamp"));
 		lt.put(Material.REDSTONE_LAMP_ON, new ItemData("Redstone Lamp (on)"));
 		lt.put(Material.REDSTONE_ORE, new ItemData("Redstone Ore"));
-		lt.put(Material.REDSTONE_TORCH_OFF, new ItemData("Redstone Torch (off)"));
+		lt.put(Material.REDSTONE_TORCH_OFF,
+				new ItemData("Redstone Torch (off)"));
 		lt.put(Material.REDSTONE_TORCH_ON, new ItemData("Redstone Torch"));
 		lt.put(Material.REDSTONE_WIRE, new ItemData("Redstone (block)"));
 		lt.put(Material.ROTTEN_FLESH, new ItemData("Rotten Flesh"));
@@ -346,14 +378,15 @@ public class ItemLookup {
 		lt.put(Material.STEP, new ItemData("Slab"));
 		lt.put(Material.STICK, new ItemData("Stick"));
 		lt.put(Material.STONE, new ItemData("Stone"));
-		lt.put(Material.STONE_AXE, new ItemData("Stone Axe"));
+		lt.put(Material.STONE_AXE, new ItemData("Stone Axe", true, false));
 		lt.put(Material.STONE_BUTTON, new ItemData("Stone Button"));
 		lt.put(Material.STONE_HOE, new ItemData("Stone Hoe"));
-		lt.put(Material.STONE_PICKAXE, new ItemData("Stone Pickaxe"));
-		lt.put(Material.STONE_PLATE, new ItemData("Stone Plate"));
+		lt.put(Material.STONE_PICKAXE, new ItemData("Stone Pickaxe", true,
+				false));
+		lt.put(Material.STONE_PLATE, new ItemData("Stone Pressure Plate"));
 		lt.put(Material.STONE_SLAB2, new ItemData("Stone Slab"));
-		lt.put(Material.STONE_SPADE, new ItemData("Stone Shovel"));
-		lt.put(Material.STONE_SWORD, new ItemData("Stone Sword"));
+		lt.put(Material.STONE_SPADE, new ItemData("Stone Shovel", true, false));
+		lt.put(Material.STONE_SWORD, new ItemData("Stone Sword", true, false));
 		lt.put(Material.STORAGE_MINECART, new ItemData("Minecart with Chest"));
 		lt.put(Material.STRING, new ItemData("String"));
 		lt.put(Material.SUGAR, new ItemData("Sugar"));
@@ -377,18 +410,19 @@ public class ItemLookup {
 		lt.put(Material.WEB, new ItemData("Web"));
 		lt.put(Material.WHEAT, new ItemData("Wheat"));
 		lt.put(Material.WOOD, new ItemData("Wood"));
-		lt.put(Material.WOOD_AXE, new ItemData("Wooden Axe"));
+		lt.put(Material.WOOD_AXE, new ItemData("Wooden Axe", true, false));
 		lt.put(Material.WOOD_BUTTON, new ItemData("Wooden Button"));
 		lt.put(Material.WOOD_DOOR, new ItemData("Wooden Door"));
 		lt.put(Material.WOOD_DOUBLE_STEP, new ItemData("Wooden Slab"));
 		lt.put(Material.WOODEN_DOOR, new ItemData("Wooden Door"));
 		lt.put(Material.WOOD_HOE, new ItemData("Wooden Hoe"));
-		lt.put(Material.WOOD_PICKAXE, new ItemData("Wooden Pickaxe"));
-		lt.put(Material.WOOD_PLATE, new ItemData("Wooden Plate"));
-		lt.put(Material.WOOD_SPADE, new ItemData("Wooden Shovle"));
-		lt.put(Material.WOOD_STAIRS, new ItemData("Wooden Stasir"));
+		lt.put(Material.WOOD_PICKAXE, new ItemData("Wooden Pickaxe", true,
+				false));
+		lt.put(Material.WOOD_PLATE, new ItemData("Wooden Pressure Plate"));
+		lt.put(Material.WOOD_SPADE, new ItemData("Wooden Shovel", true, false));
+		lt.put(Material.WOOD_STAIRS, new ItemData("Wooden Stairs"));
 		lt.put(Material.WOOD_STEP, new ItemData("Wooden Slab"));
-		lt.put(Material.WOOD_SWORD, new ItemData("Wooden Sword"));
+		lt.put(Material.WOOD_SWORD, new ItemData("Wooden Sword", true, false));
 		lt.put(Material.WOOL, new ItemData("Wool"));
 		lt.put(Material.WORKBENCH, new ItemData("Crafting Table"));
 		lt.put(Material.WRITTEN_BOOK, new ItemData("Written Book"));
@@ -397,9 +431,18 @@ public class ItemLookup {
 
 	static class ItemData {
 		String name;
+		boolean isTool;
+		boolean isArmor;
 
 		ItemData(String n) {
 			name = n;
+			isTool = isArmor = false;
+		}
+
+		ItemData(String n, boolean iT, boolean iA) {
+			name = n;
+			isTool = iT;
+			isArmor = iA;
 		}
 	}
 }

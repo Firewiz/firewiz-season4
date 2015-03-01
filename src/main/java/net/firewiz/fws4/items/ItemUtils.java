@@ -221,7 +221,10 @@ public class ItemUtils {
 				.getConfigurationSection("items");
 		ConfigurationSection durability = items
 				.getConfigurationSection("durability");
-		int dur = durability.getInt(q.name().toLowerCase());
+		ConfigurationSection specific = durability
+				.getConfigurationSection((ItemLookup.lt.get(i.getType()).isArmor) ? "armor"
+						: "tool");
+		int dur = specific.getInt(q.name().toLowerCase());
 		List<String> lore = im.getLore();
 		if (lore == null)
 			lore = new LinkedList<String>();
