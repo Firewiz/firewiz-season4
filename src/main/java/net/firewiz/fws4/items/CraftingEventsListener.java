@@ -14,7 +14,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.CraftItemEvent;
 
 public class CraftingEventsListener implements Listener {
-	Material[] crafted = { Material.CHAINMAIL_BOOTS,
+	static Material[] crafted = { Material.CHAINMAIL_BOOTS,
 			Material.CHAINMAIL_CHESTPLATE, Material.CHAINMAIL_HELMET,
 			Material.CHAINMAIL_LEGGINGS, Material.DIAMOND_AXE,
 			Material.DIAMOND_BOOTS, Material.DIAMOND_CHESTPLATE,

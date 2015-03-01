@@ -3,10 +3,12 @@ package net.firewiz.fws4.items;
 import java.util.LinkedList;
 import java.util.List;
 
+import net.firewiz.fws4.EntityStaticData;
 import net.firewiz.fws4.FWS4;
 
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -105,9 +107,9 @@ public class ItemUtils {
 		if (!hasEnchant1)
 			return;
 		percent = (int) triangular(
-				e1Power.getList(q.name().toLowerCase()).toArray(new Double[0])[0],
-				e1Power.getList(q.name().toLowerCase()).toArray(new Double[0])[1],
-				e1Power.getList(q.name().toLowerCase()).toArray(new Double[0])[2]);
+				e1Power.getList(q.name().toLowerCase()).toArray(new Integer[0])[0],
+				e1Power.getList(q.name().toLowerCase()).toArray(new Integer[0])[1],
+				e1Power.getList(q.name().toLowerCase()).toArray(new Integer[0])[2]);
 		hasEnchant2 = FWS4.rand.nextInt(1000) < e2Rate.getInt(q.toString()
 				.toLowerCase());
 
@@ -157,5 +159,57 @@ public class ItemUtils {
 
 		i.setItemMeta(im);
 
+	}
+
+	public static List<ItemStack> dropItemsFor(LivingEntity e) {
+		LinkedList<ItemStack> l = new LinkedList<ItemStack>();
+		ConfigurationSection items = FWS4.instance.getConfig()
+				.getConfigurationSection("items");
+		ConfigurationSection loot = items.getConfigurationSection("loot");
+		ConfigurationSection poor = loot.getConfigurationSection("poor");
+		ConfigurationSection rare = loot.getConfigurationSection("rare");
+
+		if (EntityStaticData.getData(e.getType()).poorDrops) {
+			if (FWS4.rand.nextInt(1000) < poor.getInt("rate")) {
+				Material m = CraftingEventsListener.crafted[FWS4.rand
+						.nextInt(CraftingEventsListener.crafted.length)];
+				ItemStack i = new ItemStack(m, 1);
+				enchantItemStack(i, ItemQuality.POOR);
+				ItemMeta im = i.getItemMeta();
+				im.setDisplayName("§" + ItemQuality.POOR.colorCode
+						+ ItemLookup.lt.get(i.getType()).name);
+				i.setItemMeta(im);
+				l.add(i);
+			}
+		}
+		if (EntityStaticData.getData(e.getType()).rareDrops) {
+			if (FWS4.rand.nextInt(1000) < rare.getInt("rate")) {
+				Material m = CraftingEventsListener.crafted[FWS4.rand
+						.nextInt(CraftingEventsListener.crafted.length)];
+				ItemStack i = new ItemStack(m, 1);
+				ItemQuality q;
+				int r = FWS4.rand.nextInt(100);
+				if (r < rare.getList("types").toArray(new Integer[0])[0]) {
+					q = ItemQuality.COMMON;
+				} else if (r < rare.getList("types").toArray(new Integer[0])[1]) {
+					q = ItemQuality.UNCOMMON;
+				} else if (r < rare.getList("types").toArray(new Integer[0])[2]) {
+					q = ItemQuality.RARE;
+				} else if (r < rare.getList("types").toArray(new Integer[0])[3]) {
+					q = ItemQuality.EPIC;
+				} else {
+					q = ItemQuality.LEGENDARY;
+				}
+
+				enchantItemStack(i, q);
+				ItemMeta im = i.getItemMeta();
+				im.setDisplayName("§" + q.colorCode
+						+ ItemLookup.lt.get(i.getType()).name);
+				i.setItemMeta(im);
+				l.add(i);
+			}
+		}
+
+		return l;
 	}
 }
