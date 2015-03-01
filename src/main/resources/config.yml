@@ -63,3 +63,18 @@ items:
         - 51
         - 76
         - 91
+  durability:
+    tools:
+      poor: 30
+      common: 120
+      uncommon: 240
+      rare: 360
+      epic: 720
+      legendary: 1280
+    armor:
+      poor: 15
+      common: 70
+      uncommon: 140
+      rare: 270
+      epic: 500
+      legendary: 720
