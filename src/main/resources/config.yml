@@ -63,3 +63,10 @@ items:
         - 51
         - 76
         - 91
+  durability:
+    poor: 30
+    common: 120
+    uncommon: 240
+    rare: 360
+    epic: 720
+    legendary: 1280

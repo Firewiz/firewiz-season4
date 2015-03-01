@@ -11,7 +11,11 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.inventory.CraftItemEvent;
+import org.bukkit.inventory.ItemStack;
 
 public class CraftingEventsListener implements Listener {
 	static Material[] crafted = { Material.CHAINMAIL_BOOTS,
@@ -33,8 +37,7 @@ public class CraftingEventsListener implements Listener {
 			Material.WOOD_AXE, Material.WOOD_PICKAXE, Material.WOOD_SPADE,
 			Material.WOOD_SWORD };
 
-	@EventHandler(
-			priority = EventPriority.NORMAL)
+	@EventHandler(priority = EventPriority.NORMAL)
 	public void onCraftItem(CraftItemEvent e) {
 		if (Arrays.asList(crafted).contains(
 				e.getInventory().getResult().getType())) {
@@ -73,6 +76,33 @@ public class CraftingEventsListener implements Listener {
 						"§9Your skill has increased to " + q, p);
 			}
 			FWS4.instance.saveConfig();
+		}
+	}
+
+	@EventHandler(priority = EventPriority.NORMAL)
+	public void onBlockBreak(BlockBreakEvent e) {
+		if (e.getPlayer() != null) {
+			ItemStack hand = e.getPlayer().getItemInHand();
+			e.getPlayer().setItemInHand(ItemUtils.damageItem(hand));
+		}
+	}
+
+	@EventHandler(priority = EventPriority.NORMAL)
+	public void onEntityDamage(EntityDamageEvent e) {
+		if (e.getEntity() instanceof Player) {
+			Player p = (Player) e.getEntity();
+			for (int i = 0; i < 4; i++) {
+				p.getInventory().getArmorContents()[i] = ItemUtils.damageItem(p
+						.getInventory().getArmorContents()[i]);
+			}
+		}
+		if (e instanceof EntityDamageByEntityEvent) {
+			if (((EntityDamageByEntityEvent) e).getDamager() instanceof Player) {
+				Player p = (Player) ((EntityDamageByEntityEvent) e)
+						.getDamager();
+				ItemStack hand = p.getItemInHand();
+				p.setItemInHand(ItemUtils.damageItem(hand));
+			}
 		}
 	}
 }

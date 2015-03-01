@@ -75,6 +75,7 @@ public class ItemUtils {
 		i.setItemMeta(im);
 
 		enchantItemStack(i, iq);
+		setItemDurability(i, iq);
 
 		return i;
 	}
@@ -179,6 +180,7 @@ public class ItemUtils {
 				im.setDisplayName("§" + ItemQuality.POOR.colorCode
 						+ ItemLookup.lt.get(i.getType()).name);
 				i.setItemMeta(im);
+				setItemDurability(i, ItemQuality.POOR);
 				l.add(i);
 			}
 		}
@@ -206,10 +208,56 @@ public class ItemUtils {
 				im.setDisplayName("§" + q.colorCode
 						+ ItemLookup.lt.get(i.getType()).name);
 				i.setItemMeta(im);
+				setItemDurability(i, q);
 				l.add(i);
 			}
 		}
-
 		return l;
+	}
+
+	public static void setItemDurability(ItemStack i, ItemQuality q) {
+		ItemMeta im = i.getItemMeta();
+		ConfigurationSection items = FWS4.instance.getConfig()
+				.getConfigurationSection("items");
+		ConfigurationSection durability = items
+				.getConfigurationSection("durability");
+		int dur = durability.getInt(q.name().toLowerCase());
+		List<String> lore = im.getLore();
+		if (lore == null)
+			lore = new LinkedList<String>();
+
+		lore.add("Durability: " + dur + "/" + dur);
+
+		im.setLore(lore);
+		i.setItemMeta(im);
+		i.setDurability(Short.MIN_VALUE);
+	}
+
+	public static ItemStack damageItem(ItemStack i) {
+		if (i == null)
+			return null;
+		ItemMeta im = i.getItemMeta();
+		if (im == null)
+			return i;
+		List<String> lore = im.getLore();
+		if (lore == null)
+			return i;
+
+		for (int n = 0; n < lore.size(); n++) {
+			if (lore.get(n).contains("Durability")) {
+				int newDur = Integer.parseInt(lore.get(n).split(" ")[1]
+						.split("/")[0]) - 1;
+				if (newDur > 0) {
+					int maxDur = Integer.parseInt(lore.get(n).split(" ")[1]
+							.split("/")[1]);
+					lore.set(n, "Durability: " + newDur + "/" + maxDur);
+				} else {
+					return null;
+				}
+			}
+		}
+		im.setLore(lore);
+		i.setItemMeta(im);
+		return i;
 	}
 }
