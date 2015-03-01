@@ -2,8 +2,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>net.firewiz</groupId>
-	<artifactId>FWS4Plugin</artifactId>
-	<version>a0.0.4-3</version>
+	<artifactId>firewiz-season4</artifactId>
+	<version>a0.0.0-0</version>
 	<build>
 		<plugins>
 			<plugin>
