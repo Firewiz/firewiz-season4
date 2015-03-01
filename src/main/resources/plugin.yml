@@ -1,0 +1,24 @@
+name: FWS4
+main: net.firewiz.fws4.FWS4
+version: a0.0.5
+commands:
+  join:
+    description: Join a chat channel.
+    usage: /join <channel ID>
+  leave:
+    description: Leave a chat channel.
+    usage: /leave <channel ID>
+  channel:
+    description: Set your main channel.
+    usage: /channel <channel ID>
+  list:
+    description: List chat channels.
+    usage: /list
+  equip:
+    description: Equip a held item.
+    usage: /equip
+  cheat:
+    description: The cheaty command.
+    usage: /cheat <q> <mat>
+  craftstats:
+    description: Shows crafting stats.
