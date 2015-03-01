@@ -1,3 +1,65 @@
+difficulty:
+  beach: 1
+  birch_forest: 2
+  birch_forest_hills: 3
+  birch_forest_hills_mountains: 5
+  birch_forest_mountains: 4
+  cold_beach: 1
+  cold_taiga: 20
+  cold_taiga_hills: 25
+  cold_taiga_mountains: 30
+  deep_ocean: 1
+  desert: 35
+  desert_hills: 40
+  desert_mountains: 45
+  extreme_hills: 60
+  extreme_hills_mountains: 70
+  extreme_hills_plus: 80
+  extreme_hills_plus_mountains: 90
+  flower_forest: 6
+  forest: 2
+  forest_hills: 5
+  frozen_ocean: 50
+  frozen_river: 50
+  hell: 100
+  ice_mountains: 55
+  ice_plains: 45
+  ice_plains_spikes: 50
+  jungle: 10
+  jungle_edge: 7
+  jungle_edge_mountains: 9
+  jungle_hills: 15
+  jungle_mountains: 17
+  mega_spruce_taiga: 65
+  mega_spruce_taiga_hills: 70
+  mega_taiga: 55
+  mega_taiga_hills: 60
+  mesa: 30
+  mesa_bryce: 40
+  mesa_plateau: 45
+  mesa_plateau_forest: 35
+  mesa_plateau_forest_mountains: 40
+  mesa_plateau_mountains: 37
+  mushroom_island: 1
+  mushroom_shore: 1
+  ocean: 1
+  plains:25
+  river: 1
+  roofed_forest: 70
+  roofed_forest_mountains: 80
+  savanna: 20
+  savanna_mountains: 30
+  savanna_plateau: 35
+  savanna_plateau_mountains: 40
+  sky: 100
+  small_mountains: 50
+  stone_beach:1
+  sunflower_plains: 30
+  swampland: 80
+  swampland_mountains: 85
+  taiga: 10
+  taiga_hills: 15
+  taiga_mountains: 20
 items:
   matBonuses:
     wood: 0
