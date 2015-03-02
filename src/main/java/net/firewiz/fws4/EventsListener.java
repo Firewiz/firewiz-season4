@@ -22,6 +22,7 @@ import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.entity.EntityRegainHealthEvent;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.vehicle.VehicleExitEvent;
 import org.bukkit.metadata.FixedMetadataValue;
@@ -45,8 +46,18 @@ public class EventsListener implements Listener {
 				return;
 			}
 		}
-		HealthBar.addHealthBar((LivingEntity) evt.getEntity(), evt.getEntity()
-				.getHealth());
+		int biomeLevel = FWS4.instance
+				.getConfig()
+				.getConfigurationSection("difficulty")
+				.getInt(evt.getEntity().getWorld()
+						.getBlockAt(evt.getEntity().getLocation()).getBiome()
+						.name().toLowerCase());
+		int creatureLevel = (int) ItemUtils.triangular(
+				(biomeLevel > 5) ? biomeLevel - 5 : 0, biomeLevel + 5,
+				biomeLevel);
+		double cStatsMultiplier = Math.pow(2, (creatureLevel - 50) / 100.0);
+		evt.getEntity().setMaxHealth(
+				evt.getEntity().getMaxHealth() * cStatsMultiplier);
 	}
 
 	@EventHandler(priority = EventPriority.NORMAL)
@@ -166,6 +177,19 @@ public class EventsListener implements Listener {
 		e.setCancelled(true);
 	}
 
+	@EventHandler(priority = EventPriority.NORMAL)
+	public void onPlayerMove(PlayerMoveEvent e) {
+		if (e.getPlayer().getWorld().getBlockAt(e.getFrom()).getBiome() != e
+				.getPlayer().getWorld().getBlockAt(e.getTo()).getBiome()) {
+			int biomeLevel = FWS4.instance
+					.getConfig()
+					.getConfigurationSection("difficulty")
+					.getInt(e.getPlayer().getWorld().getBlockAt(e.getTo())
+							.getBiome().name().toLowerCase());
+			e.getPlayer().sendMessage(
+					"Entering a level " + biomeLevel + " biome!");
+		}
+	}
 	// @EventHandler(
 	// priority = EventPriority.NORMAL)
 	// public void onItemDespawn(ItemDespawnEvent e) {

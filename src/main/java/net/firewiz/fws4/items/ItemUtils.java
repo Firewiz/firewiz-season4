@@ -80,7 +80,7 @@ public class ItemUtils {
 		return i;
 	}
 
-	static double triangular(double a, double b, double c) {
+	public static double triangular(double a, double b, double c) {
 		double U = FWS4.rand.nextDouble();
 		double F = (c - a) / (b - a);
 		if (U <= F)
