@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>net.firewiz</groupId>
 	<artifactId>firewiz-season4</artifactId>
-	<version>a0.0.0-0</version>
+	<version>a0.1-git-1f391d6265360edec1f6ebaa1ce54d02c82a0b1f</version>
 	<build>
 		<plugins>
 			<plugin>
