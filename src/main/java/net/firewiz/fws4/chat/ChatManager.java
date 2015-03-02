@@ -1,6 +1,8 @@
-package net.firewiz.fws4;
+package net.firewiz.fws4.chat;
 
 import java.util.ArrayList;
+
+import net.firewiz.fws4.FWS4;
 
 import org.bukkit.entity.Player;
 
@@ -9,6 +11,10 @@ public class ChatManager {
 	static int			 lastChannelID = 0;
 
 	ArrayList<ChatChannel> channels;
+
+	public ArrayList<ChatChannel> getChannels() {
+		return channels;
+	}
 
 	private ChatManager() {
 		channels = new ArrayList<ChatChannel>();

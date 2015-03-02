@@ -1,4 +1,4 @@
-package net.firewiz.fws4.items;
+package net.firewiz.fws4.stats;
 
 import java.util.HashMap;
 import java.util.LinkedList;

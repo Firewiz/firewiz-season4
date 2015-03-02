@@ -1,11 +1,11 @@
-package net.firewiz.fws4.items;
+package net.firewiz.fws4.data;
 
 import java.util.HashMap;
 
 import org.bukkit.Material;
 
 public class ItemLookup {
-	static HashMap<Material, ItemData> lt;
+	public static HashMap<Material, ItemData> lt;
 	static {
 		lt = new HashMap<Material, ItemData>();
 		lt.put(Material.ACACIA_DOOR, new ItemData("Acacia Door (block)"));
@@ -429,10 +429,10 @@ public class ItemLookup {
 		lt.put(Material.YELLOW_FLOWER, new ItemData("Dandelion"));
 	}
 
-	static class ItemData {
-		String name;
-		boolean isTool;
-		boolean isArmor;
+	public static class ItemData {
+		public String name;
+		public boolean isTool;
+		public boolean isArmor;
 
 		ItemData(String n) {
 			name = n;

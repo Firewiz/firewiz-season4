@@ -3,8 +3,10 @@ package net.firewiz.fws4.items;
 import java.util.LinkedList;
 import java.util.List;
 
-import net.firewiz.fws4.EntityStaticData;
 import net.firewiz.fws4.FWS4;
+import net.firewiz.fws4.data.CraftingData;
+import net.firewiz.fws4.data.EntityStaticData;
+import net.firewiz.fws4.data.ItemLookup;
 
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
@@ -172,8 +174,8 @@ public class ItemUtils {
 
 		if (EntityStaticData.getData(e.getType()).poorDrops) {
 			if (FWS4.rand.nextInt(1000) < poor.getInt("rate")) {
-				Material m = CraftingEventsListener.crafted[FWS4.rand
-						.nextInt(CraftingEventsListener.crafted.length)];
+				Material m = CraftingData.crafted[FWS4.rand
+						.nextInt(CraftingData.crafted.length)];
 				ItemStack i = new ItemStack(m, 1);
 				enchantItemStack(i, ItemQuality.POOR);
 				ItemMeta im = i.getItemMeta();
@@ -186,8 +188,8 @@ public class ItemUtils {
 		}
 		if (EntityStaticData.getData(e.getType()).rareDrops) {
 			if (FWS4.rand.nextInt(1000) < rare.getInt("rate")) {
-				Material m = CraftingEventsListener.crafted[FWS4.rand
-						.nextInt(CraftingEventsListener.crafted.length)];
+				Material m = CraftingData.crafted[FWS4.rand
+						.nextInt(CraftingData.crafted.length)];
 				ItemStack i = new ItemStack(m, 1);
 				ItemQuality q;
 				int r = FWS4.rand.nextInt(100);
@@ -265,4 +267,22 @@ public class ItemUtils {
 		i.setItemMeta(im);
 		return i;
 	}
+	
+	public static void stripEquipped(String type, ItemStack i) {
+		if (i == null)
+			return;
+		if (i.getType().toString().split("_").length > 1
+				&& (i.getType().toString().split("_")[1]
+						.equalsIgnoreCase(type))) {
+			ItemMeta im = i.getItemMeta();
+			if (im.hasLore()) {
+				List<String> l = im.getLore();
+				while (l.contains("§6Equipped"))
+					l.remove("§6Equipped");
+				im.setLore(l);
+				i.setItemMeta(im);
+			}
+		}
+	}
+
 }

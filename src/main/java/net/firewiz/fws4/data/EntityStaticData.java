@@ -1,4 +1,4 @@
-package net.firewiz.fws4;
+package net.firewiz.fws4.data;
 
 import java.util.HashMap;
 
