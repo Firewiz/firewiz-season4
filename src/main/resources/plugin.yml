@@ -1,6 +1,6 @@
 name: FWS4
 main: net.firewiz.fws4.FWS4
-version: a0.0.5
+version: a0.1-git-1f391d6265360edec1f6ebaa1ce54d02c82a0b1f
 commands:
   join:
     description: Join a chat channel.
