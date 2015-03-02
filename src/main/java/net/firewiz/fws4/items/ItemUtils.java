@@ -3,8 +3,8 @@ package net.firewiz.fws4.items;
 import java.util.LinkedList;
 import java.util.List;
 
-import net.firewiz.fws4.EntityStaticData;
 import net.firewiz.fws4.FWS4;
+import net.firewiz.fws4.data.DataInterface;
 
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
@@ -29,7 +29,7 @@ public class ItemUtils {
 	public static ItemStack generateCraftedItem(int q, Material itemType) {
 		ItemStack i = new ItemStack(itemType, 1);
 
-		ConfigurationSection items = FWS4.instance.getConfig()
+		ConfigurationSection items = FWS4.config
 				.getConfigurationSection("items");
 		ConfigurationSection matBonuses = items
 				.getConfigurationSection("matBonuses");
@@ -71,7 +71,7 @@ public class ItemUtils {
 
 		ItemMeta im = i.getItemMeta();
 		im.setDisplayName("§" + iq.colorCode
-				+ ItemLookup.lt.get(i.getType()).name);
+				+ DataInterface.id.get(i.getType()).name);
 		i.setItemMeta(im);
 
 		enchantItemStack(i, iq);
@@ -95,7 +95,7 @@ public class ItemUtils {
 		int eid1, eid2 = -1;
 		ItemMeta im = i.getItemMeta();
 		int percent = 0;
-		ConfigurationSection items = FWS4.instance.getConfig()
+		ConfigurationSection items = FWS4.config
 				.getConfigurationSection("items");
 		ConfigurationSection enchant = items.getConfigurationSection("enchant");
 		ConfigurationSection e1 = enchant.getConfigurationSection("e1");
@@ -107,10 +107,10 @@ public class ItemUtils {
 				.toLowerCase());
 		if (!hasEnchant1)
 			return;
-		percent = (int) triangular(
-				e1Power.getList(q.name().toLowerCase()).toArray(new Integer[0])[0],
-				e1Power.getList(q.name().toLowerCase()).toArray(new Integer[0])[1],
-				e1Power.getList(q.name().toLowerCase()).toArray(new Integer[0])[2]);
+		Integer[] e1Triangular = e1Power.getList(q.name().toLowerCase())
+				.toArray(new Integer[0]);
+		percent = (int) triangular(e1Triangular[0], e1Triangular[1],
+				e1Triangular[2]);
 		hasEnchant2 = FWS4.rand.nextInt(1000) < e2Rate.getInt(q.toString()
 				.toLowerCase());
 
@@ -164,30 +164,30 @@ public class ItemUtils {
 
 	public static List<ItemStack> dropItemsFor(LivingEntity e) {
 		LinkedList<ItemStack> l = new LinkedList<ItemStack>();
-		ConfigurationSection items = FWS4.instance.getConfig()
+		ConfigurationSection items = FWS4.config
 				.getConfigurationSection("items");
 		ConfigurationSection loot = items.getConfigurationSection("loot");
 		ConfigurationSection poor = loot.getConfigurationSection("poor");
 		ConfigurationSection rare = loot.getConfigurationSection("rare");
 
-		if (EntityStaticData.getData(e.getType()).poorDrops) {
+		if (DataInterface.getEntityData(e.getType()).poorDrops) {
 			if (FWS4.rand.nextInt(1000) < poor.getInt("rate")) {
-				Material m = CraftingEventsListener.crafted[FWS4.rand
-						.nextInt(CraftingEventsListener.crafted.length)];
+				Material m = DataInterface.crafted[FWS4.rand
+						.nextInt(DataInterface.crafted.length)];
 				ItemStack i = new ItemStack(m, 1);
 				enchantItemStack(i, ItemQuality.POOR);
 				ItemMeta im = i.getItemMeta();
 				im.setDisplayName("§" + ItemQuality.POOR.colorCode
-						+ ItemLookup.lt.get(i.getType()).name);
+						+ DataInterface.id.get(i.getType()).name);
 				i.setItemMeta(im);
 				setItemDurability(i, ItemQuality.POOR);
 				l.add(i);
 			}
 		}
-		if (EntityStaticData.getData(e.getType()).rareDrops) {
+		if (DataInterface.getEntityData(e.getType()).rareDrops) {
 			if (FWS4.rand.nextInt(1000) < rare.getInt("rate")) {
-				Material m = CraftingEventsListener.crafted[FWS4.rand
-						.nextInt(CraftingEventsListener.crafted.length)];
+				Material m = DataInterface.crafted[FWS4.rand
+						.nextInt(DataInterface.crafted.length)];
 				ItemStack i = new ItemStack(m, 1);
 				ItemQuality q;
 				int r = FWS4.rand.nextInt(100);
@@ -206,7 +206,7 @@ public class ItemUtils {
 				enchantItemStack(i, q);
 				ItemMeta im = i.getItemMeta();
 				im.setDisplayName("§" + q.colorCode
-						+ ItemLookup.lt.get(i.getType()).name);
+						+ DataInterface.id.get(i.getType()).name);
 				i.setItemMeta(im);
 				setItemDurability(i, q);
 				l.add(i);
@@ -217,12 +217,12 @@ public class ItemUtils {
 
 	public static void setItemDurability(ItemStack i, ItemQuality q) {
 		ItemMeta im = i.getItemMeta();
-		ConfigurationSection items = FWS4.instance.getConfig()
+		ConfigurationSection items = FWS4.config
 				.getConfigurationSection("items");
 		ConfigurationSection durability = items
 				.getConfigurationSection("durability");
 		ConfigurationSection specific = durability
-				.getConfigurationSection((ItemLookup.lt.get(i.getType()).isArmor) ? "armor"
+				.getConfigurationSection((DataInterface.id.get(i.getType()).isArmor) ? "armor"
 						: "tools");
 		int dur = specific.getInt(q.name().toLowerCase());
 		List<String> lore = im.getLore();
@@ -265,4 +265,21 @@ public class ItemUtils {
 		i.setItemMeta(im);
 		return i;
 	}
+
+	public static void stripEquipped(String type, ItemStack i) {
+		if (i == null)
+			return;
+		if (i.getType().toString().split("_").length > 1
+				&& (i.getType().toString().split("_")[1].equalsIgnoreCase(type))) {
+			ItemMeta im = i.getItemMeta();
+			if (im.hasLore()) {
+				List<String> l = im.getLore();
+				while (l.contains("§6Equipped"))
+					l.remove("§6Equipped");
+				im.setLore(l);
+				i.setItemMeta(im);
+			}
+		}
+	}
+
 }

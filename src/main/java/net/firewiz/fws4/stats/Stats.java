@@ -1,4 +1,4 @@
-package net.firewiz.fws4.items;
+package net.firewiz.fws4.stats;
 
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -97,7 +97,6 @@ public class Stats {
 		p.removePotionEffect(PotionEffectType.DAMAGE_RESISTANCE);
 		p.removePotionEffect(PotionEffectType.FIRE_RESISTANCE);
 		p.removePotionEffect(PotionEffectType.REGENERATION);
-		p.removePotionEffect(PotionEffectType.INCREASE_DAMAGE);
 
 		if (l.haste > 0)
 			p.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING,
