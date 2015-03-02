@@ -20,9 +20,6 @@ public class ChatManager {
 	private ChatManager() {
 		channels = new ArrayList<ChatChannel>();
 		(new ChatQueueFlusher()).runTaskTimer(FWS4.instance, 0, 4);
-		this.addChannel("Combat Log");
-		this.addChannel("General");
-		this.addChannel("Trade");
 	}
 
 	public class ChatQueueFlusher extends BukkitRunnable {

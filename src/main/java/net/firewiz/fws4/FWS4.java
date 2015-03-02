@@ -3,6 +3,7 @@ package net.firewiz.fws4;
 import java.util.Random;
 
 import net.firewiz.fws4.chat.ChatEventsListener;
+import net.firewiz.fws4.chat.ChatManager;
 import net.firewiz.fws4.combat.CombatEventsListener;
 import net.firewiz.fws4.commands.ChannelCommandExecutor;
 import net.firewiz.fws4.commands.CheatCommandExecutor;
@@ -11,6 +12,7 @@ import net.firewiz.fws4.commands.EquipCommandExecutor;
 import net.firewiz.fws4.commands.JoinCommandExecutor;
 import net.firewiz.fws4.commands.LeaveCommandExecutor;
 import net.firewiz.fws4.commands.ListCommandExecutor;
+import net.firewiz.fws4.data.Data;
 import net.firewiz.fws4.gmMods.GMEventsListener;
 import net.firewiz.fws4.items.ItemEventsListener;
 import net.firewiz.fws4.stats.StatsEventsListener;
@@ -31,8 +33,13 @@ public class FWS4 extends JavaPlugin {
 		instance = this;
 		config = getConfig();
 		this.saveDefaultConfig();
+		Data.saveDefaultConfig();
 		registerEventHandlers();
 		registerCommandExecutors();
+
+		ChatManager.getInstance().addChannel("Combat Log");
+		ChatManager.getInstance().addChannel("General");
+		ChatManager.getInstance().addChannel("Trade");
 	}
 
 	private void registerCommandExecutors() {

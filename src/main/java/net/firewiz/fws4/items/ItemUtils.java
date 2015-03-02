@@ -4,9 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import net.firewiz.fws4.FWS4;
-import net.firewiz.fws4.data.CraftingData;
-import net.firewiz.fws4.data.EntityStaticData;
-import net.firewiz.fws4.data.ItemLookup;
+import net.firewiz.fws4.data.DataInterface;
 
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
@@ -73,7 +71,7 @@ public class ItemUtils {
 
 		ItemMeta im = i.getItemMeta();
 		im.setDisplayName("§" + iq.colorCode
-				+ ItemLookup.lt.get(i.getType()).name);
+				+ DataInterface.id.get(i.getType()).name);
 		i.setItemMeta(im);
 
 		enchantItemStack(i, iq);
@@ -172,24 +170,24 @@ public class ItemUtils {
 		ConfigurationSection poor = loot.getConfigurationSection("poor");
 		ConfigurationSection rare = loot.getConfigurationSection("rare");
 
-		if (EntityStaticData.getData(e.getType()).poorDrops) {
+		if (DataInterface.getEntityData(e.getType()).poorDrops) {
 			if (FWS4.rand.nextInt(1000) < poor.getInt("rate")) {
-				Material m = CraftingData.crafted[FWS4.rand
-						.nextInt(CraftingData.crafted.length)];
+				Material m = DataInterface.crafted[FWS4.rand
+						.nextInt(DataInterface.crafted.length)];
 				ItemStack i = new ItemStack(m, 1);
 				enchantItemStack(i, ItemQuality.POOR);
 				ItemMeta im = i.getItemMeta();
 				im.setDisplayName("§" + ItemQuality.POOR.colorCode
-						+ ItemLookup.lt.get(i.getType()).name);
+						+ DataInterface.id.get(i.getType()).name);
 				i.setItemMeta(im);
 				setItemDurability(i, ItemQuality.POOR);
 				l.add(i);
 			}
 		}
-		if (EntityStaticData.getData(e.getType()).rareDrops) {
+		if (DataInterface.getEntityData(e.getType()).rareDrops) {
 			if (FWS4.rand.nextInt(1000) < rare.getInt("rate")) {
-				Material m = CraftingData.crafted[FWS4.rand
-						.nextInt(CraftingData.crafted.length)];
+				Material m = DataInterface.crafted[FWS4.rand
+						.nextInt(DataInterface.crafted.length)];
 				ItemStack i = new ItemStack(m, 1);
 				ItemQuality q;
 				int r = FWS4.rand.nextInt(100);
@@ -208,7 +206,7 @@ public class ItemUtils {
 				enchantItemStack(i, q);
 				ItemMeta im = i.getItemMeta();
 				im.setDisplayName("§" + q.colorCode
-						+ ItemLookup.lt.get(i.getType()).name);
+						+ DataInterface.id.get(i.getType()).name);
 				i.setItemMeta(im);
 				setItemDurability(i, q);
 				l.add(i);
@@ -224,7 +222,7 @@ public class ItemUtils {
 		ConfigurationSection durability = items
 				.getConfigurationSection("durability");
 		ConfigurationSection specific = durability
-				.getConfigurationSection((ItemLookup.lt.get(i.getType()).isArmor) ? "armor"
+				.getConfigurationSection((DataInterface.id.get(i.getType()).isArmor) ? "armor"
 						: "tools");
 		int dur = specific.getInt(q.name().toLowerCase());
 		List<String> lore = im.getLore();

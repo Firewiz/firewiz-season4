@@ -1,0 +1,963 @@
+crafted:
+  - CHAINMAIL_BOOTS
+  - CHAINMAIL_CHESTPLATE
+  - CHAINMAIL_HELMET
+  - CHAINMAIL_LEGGINGS
+  - DIAMOND_AXE
+  - DIAMOND_BOOTS
+  - DIAMOND_CHESTPLATE
+  - DIAMOND_HELMET
+  - DIAMOND_LEGGINGS
+  - DIAMOND_PICKAXE
+  - DIAMOND_SPADE
+  - DIAMOND_SWORD
+  - GOLD_AXE
+  - GOLD_BOOTS
+  - GOLD_CHESTPLATE
+  - GOLD_HELMET
+  - GOLD_LEGGINGS
+  - GOLD_PICKAXE
+  - GOLD_SPADE
+  - GOLD_SWORD
+  - IRON_AXE
+  - IRON_BOOTS
+  - IRON_CHESTPLATE
+  - IRON_HELMET
+  - IRON_LEGGINGS
+  - IRON_PICKAXE
+  - IRON_SPADE
+  - IRON_SWORD
+  - LEATHER_BOOTS
+  - LEATHER_CHESTPLATE
+  - LEATHER_HELMET
+  - LEATHER_LEGGINGS
+  - STONE_AXE
+  - STONE_PICKAXE
+  - STONE_SPADE
+  - STONE_SWORD
+  - WOOD_AXE
+  - WOOD_PICKAXE
+  - WOOD_SPADE
+  - WOOD_SWORD
+entity:
+  BAT:
+    color: a
+    poorDrops: false
+    rareDrops: false
+  BLAZE:
+    color: c
+    poorDrops: false
+    rareDrops: true
+  CHICKEN:
+    color: a
+    poorDrops: true
+    rareDrops: false
+  COW:
+    color: a
+    poorDrops: true
+    rareDrops: false
+  CREEPER:
+    color: c
+    poorDrops: true
+    rareDrops: true
+  ENDERMAN:
+    color: e
+    poorDrops: true
+    rareDrops: true
+  ENDERMITE:
+    color: c
+    poorDrops: false
+    rareDrops: false
+  GHAST:
+    color: c
+    poorDrops: false
+    rareDrops: true
+  GUARDIAN:
+    color: c
+    poorDrops: true
+    rareDrops: true
+  HORSE:
+    color: a
+    poorDrops: false
+    rareDrops: false
+  OCELOT:
+    color: a
+    poorDrops: true
+    rareDrops: false
+  PIG:
+    color: a
+    poorDrops: true
+    rareDrops: false
+  PLAYER:
+    color: 9
+    poorDrops: false
+    rareDrops: false
+  RABBIT:
+    color: a
+    poorDrops: true
+    rareDrops: false
+  SHEEP:
+    color: a
+    poorDrops: true
+    rareDrops: false
+  SILVERFISH:
+    color: c
+    poorDrops: false
+    rareDrops: false
+  SKELETON:
+    color: c
+    poorDrops: true
+    rareDrops: true
+  SLIME:
+    color: c
+    poorDrops: true
+    rareDrops: true
+  SNOWMAN:
+    color: a
+    poorDrops: false
+    rareDrops: false
+  SPIDER:
+    color: c
+    poorDrops: true
+    rareDrops: true
+  SQUID:
+    color: a
+    poorDrops: true
+    rareDrops: false
+  VILLAGER:
+    color: a
+    poorDrops: false
+    rareDrops: false
+  WITCH:
+    color: c
+    poorDrops: true
+    rareDrops: true
+  WOLF:
+    color: a
+    poorDrops: false
+    rareDrops: false
+  ZOMBIE:
+    color: c
+    poorDrops: true
+    rareDrops: true
+  UNKNOWN:
+    color: b
+    poorDrops: false
+    rareDrops: false
+item:
+  ACACIA_DOOR:
+    name: Acacia Door (block)
+  ACACIA_DOOR_ITEM:
+    name: Acacia Door
+  ACACIA_FENCE:
+    name: Acacia Fence
+  ACACIA_FENCE_GATE:
+    name: Acacia Fence Gate
+  ACACIA_STAIRS:
+    name: Acacia Stairs
+  ACTIVATOR_RAIL:
+    name: Activator Rail
+  AIR:
+    name: Air
+  ANVIL:
+    name: Anvil
+  APPLE:
+    name: Apple
+  ARMOR_STAND:
+    name: Armor Stand
+  ARROW:
+    name: Arrow
+  BAKED_POTATO:
+    name: Baked Potato
+  BANNER:
+    name: Banner
+  BARRIER:
+    name: Barrier
+  BEACON:
+    name: Beacon
+  BED:
+    name: Bed
+  BED_BLOCK:
+    name: Bed (block)
+  BEDROCK:
+    name: Bedrock
+  BIRCH_DOOR:
+    name: Birch Door (block)
+  BIRCH_DOOR_ITEM:
+    name: Birch Door
+  BIRCH_FENCE:
+    name: Birch Fence
+  BIRCH_FENCE_GATE:
+    name: Birch Fence Gate
+  BIRCH_WOOD_STAIRS:
+    name: Birch Stairs
+  BLAZE_POWDER:
+    name: Blaze Powder
+  BLAZE_ROD:
+    name: Blaze Rod
+  BOAT:
+    name: Boat
+  BONE:
+    name: Bone
+  BOOK:
+    name: Book
+  BOOK_AND_QUILL:
+    name: Book and Quill
+  BOOKSHELF:
+    name: Bookshelf
+  BOW:
+    name: Bow
+  BOWL:
+    name: Bowl
+  BREAD:
+    name: Bread
+  BREWING_STAND:
+    name: Brewing Stand (block)
+  BREWING_STAND_ITEM:
+    name: Brewing Stand
+  BRICK:
+    name: Brick
+  BRICK_STAIRS:
+    name: Brick Stairs
+  BROWN_MUSHROOM:
+    name: Mushroom
+  BUCKET:
+    name: Bucket
+  BURNING_FURNACE:
+    name: Furnace (lit)
+  CACTUS:
+    name: Cactus
+  CAKE:
+    name: Cake
+  CAKE_BLOCK:
+    name: Cake (block)
+  CARPET:
+    name: Carpet
+  CARROT:
+    name: Carrot (block)
+  CARROT_ITEM:
+    name: Carrot
+  CARROT_STICK:
+    name: Carrot on a Stick
+  CAULDRON:
+    name: Cauldron (block)
+  CAULDRON_ITEM:
+    name: Cauldron
+  CHAINMAIL_BOOTS:
+    name: Chain Boots
+    tool: false
+    armor: true
+  CHAINMAIL_CHESTPLATE:
+    name: Chain Chestplate
+    tool: false
+    armor: true
+  CHAINMAIL_HELMET:
+    name: Chain Helmet
+    tool: false
+    armor: true
+  CHAINMAIL_LEGGINGS:
+    name: Chain Leggings
+    tool: false
+    armor: true
+  CHEST:
+    name: Chest
+  CLAY:
+    name: Clay
+  CLAY_BALL:
+    name: Clay Ball
+  CLAY_BRICK:
+    name: Brick
+  COAL:
+    name: Coal
+  COAL_BLOCK:
+    name: Block of Coal
+  COAL_ORE:
+    name: Coal Ore
+  COBBLESTONE:
+    name: Cobblestone
+  COBBLESTONE_STAIRS:
+    name: Cobblestone Stairs
+  COBBLE_WALL:
+    name: Cobblestone Wall
+  COCOA:
+    name: Cocoa
+  COMMAND:
+    name: Command Block
+  COMPASS:
+    name: Compass
+  COOKED_BEEF:
+    name: Cooked Beef
+  COOKED_CHICKEN:
+    name: Cooked Chicken
+  COOKED_FISH:
+    name: Cooked Fish
+  COOKED_MUTTON:
+    name: Cooked Mutton
+  COOKED_RABBIT:
+    name: Cooked Rabbit
+  COOKIE:
+    name: Cookie
+  CROPS:
+    name: Wheat (block)
+  DARK_OAK_DOOR:
+    name: Dark Oak Door (block)
+  DARK_OAK_DOOR_ITEM:
+    name: Dark Oak Door
+  DARK_OAK_FENCE:
+    name: Dark Oak Fence
+  DARK_OAK_FENCE_GATE:
+    name: Dark Oak Fence Gate
+  DARK_OAK_STAIRS:
+    name: Dark Oak Stairs
+  DAYLIGHT_DETECTOR:
+    name: Daylight Detector
+  DAYLIGHT_DETECTOR_INVERTED:
+    name: Daylight Detector (inverted)
+  DEAD_BUSH:
+    name: Dead Bush
+  DETECTOR_RAIL:
+    name: Detector Rail
+  DIAMOND:
+    name: Diamond
+  DIAMOND_AXE:
+    name: Diamond Axe
+    tool: true
+    armor: false
+  DIAMOND_BARDING:
+    name: Diamond Horse Armor
+  DIAMOND_BLOCK:
+    name: Block of Diamond
+  DIAMOND_BOOTS:
+    name: Diamond Boots
+    tool: false
+    armor: true
+  DIAMOND_CHESTPLATE:
+    name: Diamond Chestplate
+    tool: false
+    armor: true
+  DIAMOND_HELMET:
+    name: Diamond Helmet
+    tool: false
+    armor: true
+  DIAMOND_HOE:
+    name: Diamond Hoe
+  DIAMOND_LEGGINGS:
+    name: Diamond Leggings
+    tool: false
+    armor: true
+  DIAMOND_ORE:
+    name: Diamond Ore
+  DIAMOND_PICKAXE:
+    name: Diamond Pickaxe
+    tool: true
+    armor: false
+  DIAMOND_SPADE:
+    name: Diamond Shovel
+    tool: true
+    armor: false
+  DIAMOND_SWORD:
+    name: Diamond Sword
+    tool: true
+    armor: false
+  DIODE:
+    name: Redstone Repeater
+  DIODE_BLOCK_OFF:
+    name: Redstone Repeater (off)
+  DIODE_BLOCK_ON:
+    name: Redstone Repeater (on)
+  DIRT:
+    name: Dirt
+  DISPENSER:
+    name: Dispenser
+  DOUBLE_PLANT:
+    name: Tall Plant
+  DOUBLE_STEP:
+    name: Double Slab
+  DRAGON_EGG:
+    name: Dragon Egg
+  DROPPER:
+    name: Dropper
+  EGG:
+    name: Egg
+  EMERALD:
+    name: Emerald
+  EMERALD_BLOCK:
+    name: Block of Emerald
+  EMERALD_ORE:
+    name: Emerald Ore
+  EMPTY_MAP:
+    name: Empty Map
+  ENCHANTED_BOOK:
+    name: Enchanted Book
+  ENCHANTMENT_TABLE:
+    name: Enchantment Table
+  ENDER_CHEST:
+    name: Ender Chest
+  ENDER_PEARL:
+    name: Ender Pearl
+  ENDER_PORTAL:
+    name: End Portal
+  ENDER_PORTAL_FRAME:
+    name: End Portal Frame
+  ENDER_STONE:
+    name: End Stone
+  EXP_BOTTLE:
+    name: Bottle o' Enchanting
+  EXPLOSIVE_MINECART:
+    name: Minecart with TNT
+  EYE_OF_ENDER:
+    name: Eye of Ender
+  FEATHER:
+    name: Feather
+  FENCE:
+    name: Fence
+  FENCE_GATE:
+    name: Fence Gate
+  FERMENTED_SPIDER_EYE:
+    name: Fermented Spider Eye
+  FIRE:
+    name: Fire
+  FIREBALL:
+    name: Fire Charge
+  FIREWORK:
+    name: Firework
+  FIREWORK_CHARGE:
+    name: Firework Star
+  FISHING_ROD:
+    name: Fishing Rod
+  FLINT:
+    name: Flint
+  FLINT_AND_STEEL:
+    name: Flint and Steel
+  FLOWER_POT:
+    name: Flowerpot (block)
+  FLOWER_POT_ITEM:
+    name: Flowerpot
+  FURNACE:
+    name: Furnace
+  GHAST_TEAR:
+    name: Ghast Tear
+  GLASS:
+    name: Glass
+  GLASS_BOTTLE:
+    name: Glass Bottle
+  GLOWING_REDSTONE_ORE:
+    name: Redstone Ore (lit)
+  GLOWSTONE:
+    name: Glowstone
+  GLOWSTONE_DUST:
+    name: Glowstone Dust
+  GOLD_AXE:
+    name: Golden Axe
+    tool: true
+    armor: false
+  GOLD_BARDING:
+    name: Golden Horse Armor
+  GOLD_BLOCK:
+    name: Golden Block
+  GOLD_BOOTS:
+    name: Golden Boots
+    tool: false
+    armor: true
+  GOLD_CHESTPLATE:
+    name: Golden Chestplate
+    tool: false
+    armor: true
+  GOLDEN_APPLE:
+    name: Golden Apple
+  GOLDEN_CARROT:
+    name: Golden Carrot
+  GOLD_HELMET:
+    name: Golden Helmet
+    tool: false
+    armor: true
+  GOLD_HOE:
+    name: Golden Hoe
+  GOLD_INGOT:
+    name: Gold Ingot
+  GOLD_LEGGINGS:
+    name: Golden Leggings
+    tool: false
+    armor: true
+  GOLD_NUGGET:
+    name: Gold Nugget
+  GOLD_ORE:
+    name: Gold Ore
+  GOLD_PICKAXE:
+    name: Golden Pickaxe
+    tool: true
+    armor: false
+  GOLD_PLATE:
+    name: Gold Pressure Plate
+  GOLD_RECORD:
+    name: Gold Record
+  GOLD_SPADE:
+    name: Golden Shovel
+    tool: true
+    armor: false
+  GOLD_SWORD:
+    name: Golden Sword
+    tool: true
+    armor: false
+  GRASS:
+    name: Grass
+  GRAVEL:
+    name: Gravel
+  GREEN_RECORD:
+    name: Green Record
+  GRILLED_PORK:
+    name: Cooked Pork
+  HARD_CLAY:
+    name: Hardened Clay
+  HAY_BLOCK:
+    name: Hay Bale
+  HOPPER:
+    name: Hopper
+  HOPPER_MINECART:
+    name: Minecart with Hopper
+  ICE:
+    name: Ice
+  INK_SACK:
+    name: Ink Sac
+  IRON_AXE:
+    name: Iron Axe
+    tool: true
+    armor: false
+  IRON_BARDING:
+    name: Iron Horse Armor
+  IRON_BLOCK:
+    name: Block of Iron
+  IRON_BOOTS:
+    name: Iron Boots
+    tool: false
+    armor: true
+  IRON_CHESTPLATE:
+    name: Iron Chestplate
+    tool: false
+    armor: true
+  IRON_DOOR:
+    name: Iron Door
+  IRON_DOOR_BLOCK:
+    name: Iron Door (block)
+  IRON_FENCE:
+    name: Iron Bars
+  IRON_HELMET:
+    name: Iron Helmet
+    tool: false
+    armor: true
+  IRON_HOE:
+    name: Iron Hoe
+  IRON_INGOT:
+    name: Iron Ingot
+  IRON_LEGGINGS:
+    name: Iron Leggings
+    tool: false
+    armor: true
+  IRON_ORE:
+    name: Iron Ore
+  IRON_PICKAXE:
+    name: Iron Pickaxe
+    tool: true
+    armor: false
+  IRON_PLATE:
+    name: Iron Pressure Plate
+  IRON_SPADE:
+    name: Iron Shovel
+    tool: true
+    armor: false
+  IRON_SWORD:
+    name: Iron Sword
+    tool: true
+    armor: false
+  IRON_TRAPDOOR:
+    name: Iron Trapdoor
+  ITEM_FRAME:
+    name: Item Frame
+  JACK_O_LANTERN:
+    name: Jack o' Lantern
+  JUKEBOX:
+    name: Jukebox
+  JUNGLE_DOOR:
+    name: Jungle Wood Door (block)
+  JUNGLE_DOOR_ITEM:
+    name: Jungle Wood Door
+  JUNGLE_FENCE:
+    name: Jungle Wood Fence
+  JUNGLE_FENCE_GATE:
+    name: Jungle Wood Fence Gate
+  JUNGLE_WOOD_STAIRS:
+    name: Jungle Wood Stairs
+  LADDER:
+    name: Ladder
+  LAPIS_BLOCK:
+    name: Block of Lapis
+  LAPIS_ORE:
+    name: Lapis Ore
+  LAVA:
+    name: Lava
+  LAVA_BUCKET:
+    name: Lava Bucket
+  LEASH:
+    name: Leash
+  LEATHER:
+    name: Leather
+  LEATHER_BOOTS:
+    name: Leather Boots
+    tool: false
+    armor: true
+  LEATHER_CHESTPLATE:
+    name: Leather Chestplate
+    tool: false
+    armor: true
+  LEATHER_HELMET:
+    name: Leather Hat
+    tool: false
+    armor: true
+  LEATHER_LEGGINGS:
+    name: Leather Pants
+    tool: false
+    armor: true
+  LEAVES:
+    name: Leaves
+  LEVER:
+    name: Lever
+  LOG:
+    name: Log
+  LONG_GRASS:
+    name: Long Grass
+  MAGMA_CREAM:
+    name: Magma Cream
+  MAP:
+    name: Map
+  MELON:
+    name: Melon
+  MELON_BLOCK:
+    name: Melon Block
+  MELON_SEEDS:
+    name: Melon Seeds
+  MELON_STEM:
+    name: Melon Stem
+  MILK_BUCKET:
+    name: Milk Bucket
+  MINECART:
+    name: Minecart
+  MOB_SPAWNER:
+    name: Mob Spawner
+  MONSTER_EGG:
+    name: Monster Egg
+  MONSTER_EGGS:
+    name: Monster Eggs
+  MOSSY_COBBLESTONE:
+    name: Mossy Cobblestone
+  MUSHROOM_SOUP:
+    name: Mushroom Soup
+  MUTTON:
+    name: Mutton
+  MYCEL:
+    name: Mycelium
+  NAME_TAG:
+    name: Name Tag
+  NETHER_BRICK:
+    name: Nether Bricks
+  NETHER_BRICK_ITEM:
+    name: Nether Brick
+  NETHER_BRICK_STAIRS:
+    name: Nether Brick Stairs
+  NETHER_FENCE:
+    name: Nether Brick Fence
+  NETHERRACK:
+    name: Netherrack
+  NETHER_STALK:
+    name: Nether Wart
+  NETHER_STAR:
+    name: Nether Star
+  NETHER_WARTS:
+    name: Nether Wart
+  NOTE_BLOCK:
+    name: Note Block
+  OBSIDIAN:
+    name: Obsidian
+  PACKED_ICE:
+    name: Packed Ice
+  PAINTING:
+    name: Painting
+  PAPER:
+    name: Paper
+  PISTON_BASE:
+    name: Piston
+  PISTON_EXTENSION:
+    name: Piston
+  PISTON_MOVING_PIECE:
+    name: Piston
+  PISTON_STICKY_BASE:
+    name: Sticky Piston
+  POISONOUS_POTATO:
+    name: Poisonous Potato
+  PORK:
+    name: Pork
+  PORTAL:
+    name: Nether Portal
+  POTATO:
+    name: Potato (block)
+  POTATO_ITEM:
+    name: Potato
+  POTION:
+    name: Potion
+  POWERED_MINECART:
+    name: Minecart with Furnace
+  POWERED_RAIL:
+    name: Powered Rail
+  PRISMARINE:
+    name: Prismarine
+  PRISMARINE_CRYSTALS:
+    name: Prismarine Crystals
+  PRISMARINE_SHARD:
+    name: Prismarine Shard
+  PUMPKIN:
+    name: Pumpkin
+  PUMPKIN_PIE:
+    name: Pumpkin Pie
+  PUMPKIN_SEEDS:
+    name: Pumpkin Seeds
+  PUMPKIN_STEM:
+    name: Pumpkin Stem
+  QUARTZ:
+    name: Nether Quartz
+  QUARTZ_BLOCK:
+    name: Nether Quartz Block
+  QUARTZ_ORE:
+    name: Nether Quartz Ore
+  QUARTZ_STAIRS:
+    name: Nether Quartz Stairs
+  RABBIT:
+    name: Rabbit
+  RABBIT_FOOT:
+    name: Rabbit's Foot
+  RABBIT_HIDE:
+    name: Rabbit Hide
+  RABBIT_STEW:
+    name: Rabbit Stew
+  RAILS:
+    name: Rails
+  RAW_BEEF:
+    name: Raw Beef
+  RAW_CHICKEN:
+    name: Raw Chicken
+  RAW_FISH:
+    name: Raw Fish
+  RED_MUSHROOM:
+    name: Mushroom
+  RED_ROSE:
+    name: Poppy
+  RED_SANDSTONE:
+    name: Red Sandstone
+  RED_SANDSTONE_STAIRS:
+    name: Red Sandstone Stairs
+  REDSTONE:
+    name: Redstone Dust
+  REDSTONE_BLOCK:
+    name: Block of Redstone
+  REDSTONE_COMPARATOR:
+    name: Comparator
+  REDSTONE_COMPARATOR_OFF:
+    name: Comparator (off)
+  REDSTONE_COMPARATOR_ON:
+    name: Comparator (on)
+  REDSTONE_LAMP_OFF:
+    name: Redstone Lamp
+  REDSTONE_LAMP_ON:
+    name: Redstone Lamp (on)
+  REDSTONE_ORE:
+    name: Redstone Ore
+  REDSTONE_TORCH_OFF:
+    name: Redstone Torch (off)
+  REDSTONE_TORCH_ON:
+    name: Redstone Torch
+  REDSTONE_WIRE:
+    name: Redstone (block)
+  ROTTEN_FLESH:
+    name: Rotten Flesh
+  SADDLE:
+    name: Saddle
+  SAND:
+    name: Sand
+  SANDSTONE:
+    name: Sandstone
+  SANDSTONE_STAIRS:
+    name: Sandstone Stairs
+  SAPLING:
+    name: Sapling
+  SEA_LANTERN:
+    name: Sea Lantern
+  SEEDS:
+    name: Seeds
+  SHEARS:
+    name: Shears
+  SIGN:
+    name: Sign
+  SIGN_POST:
+    name: Floor Sign
+  SKULL:
+    name: Head
+  SKULL_ITEM:
+    name: Head
+  SLIME_BALL:
+    name: Slime Ball
+  SLIME_BLOCK:
+    name: Slime Block
+  SMOOTH_BRICK:
+    name: Stone Brick
+  SMOOTH_STAIRS:
+    name: Stone Brick Stairs
+  SNOW:
+    name: Snow
+  SNOW_BALL:
+    name: Snowball
+  SNOW_BLOCK:
+    name: Snow Block
+  SOIL:
+    name: Soil
+  SOUL_SAND:
+    name: Soul Sand
+  SPECKLED_MELON:
+    name: Glistening Melon
+  SPIDER_EYE:
+    name: Spider Eye
+  SPONGE:
+    name: Sponge
+  SPRUCE_DOOR:
+    name: Spruce Door (block)
+  SPRUCE_DOOR_ITEM:
+    name: Spruce Door
+  SPRUCE_FENCE:
+    name: Spruce Fence
+  SPRUCE_FENCE_GATE:
+    name: Spruce Fence Gate
+  SPRUCE_WOOD_STAIRS:
+    name: Spruce Wood Stairs
+  STAINED_CLAY:
+    name: Stained Clay
+  STAINED_GLASS:
+    name: Stained Glass
+  STAINED_GLASS_PANE:
+    name: Stained Glass Pane
+  STANDING_BANNER:
+    name: Banner
+  STATIONARY_LAVA:
+    name: Lava
+  STATIONARY_WATER:
+    name: Water
+  STEP:
+    name: Slab
+  STICK:
+    name: Stick
+  STONE:
+    name: Stone
+  STONE_AXE:
+    name: Stone Axe
+    tool: true
+    armor: false
+  STONE_BUTTON:
+    name: Stone Button
+  STONE_HOE:
+    name: Stone Hoe
+  STONE_PICKAXE:
+    name: Stone Pickaxe
+    tool: true
+    armor: false
+  STONE_PLATE:
+    name: Stone Pressure Plate
+  STONE_SPADE:
+    name: Stone Shovel
+    tool: true
+    armor: false
+  STONE_SWORD:
+    name: Stone Sword
+    tool: true
+    armor: false
+  STORAGE_MINECART:
+    name: Minecart with Chest
+  STRING:
+    name: String
+  SUGAR:
+    name: Sugar
+  SUGAR_CANE:
+    name: Sugar Cane
+  SUGAR_CANE_BLOCK:
+    name: Sugar Cane (block)
+  SULPHUR:
+    name: Gunpowder
+  THIN_GLASS:
+    name: Glass Pane
+  TNT:
+    name: TNT
+  TORCH:
+    name: Torch
+  TRAP_DOOR:
+    name: Trapdoor
+  TRAPPED_CHEST:
+    name: Trapped Chest
+  TRIPWIRE:
+    name: Tripwire
+  TRIPWIRE_HOOK:
+    name: Tripwire Hook
+  VINE:
+    name: Vine
+  WALL_BANNER:
+    name: Banner
+  WALL_SIGN:
+    name: Wall Sign
+  WATCH:
+    name: Clock
+  WATER:
+    name: Water
+  WATER_BUCKET:
+    name: Water Bucket
+  WATER_LILY:
+    name: Lily Pad
+  WEB:
+    name: Web
+  WHEAT:
+    name: Wheat
+  WOOD:
+    name: Wood
+  WOOD_AXE:
+    name: Wooden Axe
+    tool: true
+    armor: false
+  WOOD_BUTTON:
+    name: Wooden Button
+  WOOD_DOOR:
+    name: Wooden Door
+  WOOD_DOUBLE_STEP:
+    name: Wooden Slab
+  WOODEN_DOOR:
+    name: Wooden Door
+  WOOD_HOE:
+    name: Wooden Hoe
+  WOOD_PICKAXE:
+    name: Wooden Pickaxe
+    tool: true
+    armor: false
+  WOOD_PLATE:
+    name: Wooden Pressure Plate
+  WOOD_SPADE:
+    name: Wooden Shovel
+    tool: true
+    armor: false
+  WOOD_STAIRS:
+    name: Wooden Stairs
+  WOOD_STEP:
+    name: Wooden Slab
+  WOOD_SWORD:
+    name: Wooden Sword
+    tool: true
+    armor: false
+  WOOL:
+    name: Wool
+  WORKBENCH:
+    name: Crafting Table
+  WRITTEN_BOOK:
+    name: Written Book
+  YELLOW_FLOWER:
+    name: Dandelion

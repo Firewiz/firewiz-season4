@@ -6,7 +6,7 @@ import java.util.Random;
 
 import net.firewiz.fws4.FWS4;
 import net.firewiz.fws4.chat.ChatManager;
-import net.firewiz.fws4.data.CraftingData;
+import net.firewiz.fws4.data.DataInterface;
 
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
@@ -38,7 +38,7 @@ public class ItemEventsListener implements Listener {
 	public void onCraftItem(CraftItemEvent e) {
 		ItemStack result = e.getInventory().getResult();
 		Material resultMaterial = result.getType();
-		if (Arrays.asList(CraftingData.crafted).contains(resultMaterial)) {
+		if (Arrays.asList(DataInterface.crafted).contains(resultMaterial)) {
 			Random r = new Random();
 			Player p = (Player) e.getInventory().getHolder();
 			ConfigurationSection craftSkill = FWS4.config
