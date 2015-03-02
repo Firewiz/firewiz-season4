@@ -8,7 +8,6 @@ This is the server-side plugin for Firewiz Season 4.
 
 * RPG-style items and crafting.
 * Advanced player statistics.
-
-## Upcoming
-
-* Health bars
+* Chat channels.
+* Combat log.
+* Zombie pigman spawning fix.
