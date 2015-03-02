@@ -1,6 +1,6 @@
 package net.firewiz.fws4.commands;
 
-import net.firewiz.fws4.FWS4;
+import net.firewiz.fws4.chat.ChatManager;
 import net.firewiz.fws4.chat.NonexistentChannelException;
 
 import org.bukkit.command.Command;
@@ -19,7 +19,7 @@ public class JoinCommandExecutor implements CommandExecutor {
 			return false;
 		}
 		try {
-			FWS4.chatManager.joinChannel(Integer.parseInt(args[0]),
+			ChatManager.getInstance().joinChannel(Integer.parseInt(args[0]),
 					(Player) sender);
 		} catch (NumberFormatException e) {
 			return false;

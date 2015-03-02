@@ -1,7 +1,7 @@
 package net.firewiz.fws4.commands;
 
-import net.firewiz.fws4.FWS4;
 import net.firewiz.fws4.chat.ChatChannel;
+import net.firewiz.fws4.chat.ChatManager;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -12,7 +12,7 @@ public class ListCommandExecutor implements CommandExecutor {
 	@Override
 	public boolean onCommand(CommandSender sender, Command command,
 			String label, String[] args) {
-		for (ChatChannel c : FWS4.chatManager.getChannels()) {
+		for (ChatChannel c : ChatManager.getInstance().getChannels()) {
 			sender.sendMessage("§a" + c.getChannelID() + ": "
 					+ c.getChannelName());
 		}

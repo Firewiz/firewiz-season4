@@ -17,9 +17,9 @@ public class ChatEventsListener implements Listener {
 	@EventHandler(priority = EventPriority.NORMAL)
 	public void onPlayerJoin(PlayerJoinEvent e) {
 		try {
-			FWS4.chatManager.joinChannel(0, e.getPlayer());
-			FWS4.chatManager.joinChannel(1, e.getPlayer());
-			FWS4.chatManager.joinChannel(2, e.getPlayer());
+			ChatManager.getInstance().joinChannel(0, e.getPlayer());
+			ChatManager.getInstance().joinChannel(1, e.getPlayer());
+			ChatManager.getInstance().joinChannel(2, e.getPlayer());
 		} catch (NonexistentChannelException e1) {
 			FWS4.instance.getLogger().log(Level.SEVERE,
 					"Can't happen at onPlayerJoin");
@@ -28,7 +28,7 @@ public class ChatEventsListener implements Listener {
 
 	@EventHandler(priority = EventPriority.NORMAL)
 	public void onPlayerQuit(PlayerQuitEvent e) {
-		FWS4.chatManager.leaveAllChannels(e.getPlayer());
+		ChatManager.getInstance().leaveAllChannels(e.getPlayer());
 	}
 
 	@EventHandler(priority = EventPriority.NORMAL)
@@ -38,8 +38,9 @@ public class ChatEventsListener implements Listener {
 			p.setMetadata("ChatChannel", new FixedMetadataValue(FWS4.instance,
 					1));
 		}
-		FWS4.chatManager.sendMessage(p.getMetadata("ChatChannel").get(0)
-				.asInt(), "[" + p.getName() + "] " + e.getMessage(), p);
+		ChatManager.getInstance().sendMessage(
+				p.getMetadata("ChatChannel").get(0).asInt(),
+				"[" + p.getName() + "] " + e.getMessage(), p);
 		e.setCancelled(true);
 	}
 }

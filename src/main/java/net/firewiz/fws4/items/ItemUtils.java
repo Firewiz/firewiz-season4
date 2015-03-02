@@ -31,7 +31,7 @@ public class ItemUtils {
 	public static ItemStack generateCraftedItem(int q, Material itemType) {
 		ItemStack i = new ItemStack(itemType, 1);
 
-		ConfigurationSection items = FWS4.instance.getConfig()
+		ConfigurationSection items = FWS4.config
 				.getConfigurationSection("items");
 		ConfigurationSection matBonuses = items
 				.getConfigurationSection("matBonuses");
@@ -97,7 +97,7 @@ public class ItemUtils {
 		int eid1, eid2 = -1;
 		ItemMeta im = i.getItemMeta();
 		int percent = 0;
-		ConfigurationSection items = FWS4.instance.getConfig()
+		ConfigurationSection items = FWS4.config
 				.getConfigurationSection("items");
 		ConfigurationSection enchant = items.getConfigurationSection("enchant");
 		ConfigurationSection e1 = enchant.getConfigurationSection("e1");
@@ -109,10 +109,10 @@ public class ItemUtils {
 				.toLowerCase());
 		if (!hasEnchant1)
 			return;
-		percent = (int) triangular(
-				e1Power.getList(q.name().toLowerCase()).toArray(new Integer[0])[0],
-				e1Power.getList(q.name().toLowerCase()).toArray(new Integer[0])[1],
-				e1Power.getList(q.name().toLowerCase()).toArray(new Integer[0])[2]);
+		Integer[] e1Triangular = e1Power.getList(q.name().toLowerCase())
+				.toArray(new Integer[0]);
+		percent = (int) triangular(e1Triangular[0], e1Triangular[1],
+				e1Triangular[2]);
 		hasEnchant2 = FWS4.rand.nextInt(1000) < e2Rate.getInt(q.toString()
 				.toLowerCase());
 
@@ -166,7 +166,7 @@ public class ItemUtils {
 
 	public static List<ItemStack> dropItemsFor(LivingEntity e) {
 		LinkedList<ItemStack> l = new LinkedList<ItemStack>();
-		ConfigurationSection items = FWS4.instance.getConfig()
+		ConfigurationSection items = FWS4.config
 				.getConfigurationSection("items");
 		ConfigurationSection loot = items.getConfigurationSection("loot");
 		ConfigurationSection poor = loot.getConfigurationSection("poor");
@@ -219,7 +219,7 @@ public class ItemUtils {
 
 	public static void setItemDurability(ItemStack i, ItemQuality q) {
 		ItemMeta im = i.getItemMeta();
-		ConfigurationSection items = FWS4.instance.getConfig()
+		ConfigurationSection items = FWS4.config
 				.getConfigurationSection("items");
 		ConfigurationSection durability = items
 				.getConfigurationSection("durability");
@@ -267,13 +267,12 @@ public class ItemUtils {
 		i.setItemMeta(im);
 		return i;
 	}
-	
+
 	public static void stripEquipped(String type, ItemStack i) {
 		if (i == null)
 			return;
 		if (i.getType().toString().split("_").length > 1
-				&& (i.getType().toString().split("_")[1]
-						.equalsIgnoreCase(type))) {
+				&& (i.getType().toString().split("_")[1].equalsIgnoreCase(type))) {
 			ItemMeta im = i.getItemMeta();
 			if (im.hasLore()) {
 				List<String> l = im.getLore();

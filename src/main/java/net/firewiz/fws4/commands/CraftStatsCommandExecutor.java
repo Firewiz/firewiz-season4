@@ -16,11 +16,11 @@ public class CraftStatsCommandExecutor implements CommandExecutor {
 		if (!(sender instanceof Player))
 			return false;
 		Player p = (Player) sender;
-		ConfigurationSection craftSkill = FWS4.instance.getConfig()
+		ConfigurationSection craftSkill = FWS4.config
 				.getConfigurationSection("craftSkill");
 		if (craftSkill == null) {
-			FWS4.instance.getConfig().createSection("craftSkill");
-			craftSkill = FWS4.instance.getConfig().getConfigurationSection(
+			FWS4.config.createSection("craftSkill");
+			craftSkill = FWS4.config.getConfigurationSection(
 					"craftSkill");
 		}
 		String playerID = p.getUniqueId().toString();
@@ -33,7 +33,7 @@ public class CraftStatsCommandExecutor implements CommandExecutor {
 		for (String s : playerSkills.getKeys(false)) {
 			int q = playerSkills.getInt(s);
 			p.sendMessage("Skill in " + s + ": " + q);
-			ConfigurationSection items = FWS4.instance.getConfig()
+			ConfigurationSection items = FWS4.config
 					.getConfigurationSection("items");
 			ConfigurationSection matBonuses = items
 					.getConfigurationSection("matBonuses");

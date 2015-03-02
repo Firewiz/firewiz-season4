@@ -5,8 +5,10 @@ import java.util.List;
 import java.util.Random;
 
 import net.firewiz.fws4.FWS4;
+import net.firewiz.fws4.chat.ChatManager;
 import net.firewiz.fws4.data.CraftingData;
 
+import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -31,43 +33,40 @@ public class ItemEventsListener implements Listener {
 			evt.getDrops().addAll(ItemUtils.dropItemsFor(evt.getEntity()));
 		}
 	}
-	
+
 	@EventHandler(priority = EventPriority.NORMAL)
 	public void onCraftItem(CraftItemEvent e) {
-		if (Arrays.asList(CraftingData.crafted).contains(
-				e.getInventory().getResult().getType())) {
+		ItemStack result = e.getInventory().getResult();
+		Material resultMaterial = result.getType();
+		if (Arrays.asList(CraftingData.crafted).contains(resultMaterial)) {
 			Random r = new Random();
 			Player p = (Player) e.getInventory().getHolder();
-			ConfigurationSection craftSkill = FWS4.instance.getConfig()
+			ConfigurationSection craftSkill = FWS4.config
 					.getConfigurationSection("craftSkill");
 			if (craftSkill == null) {
-				FWS4.instance.getConfig().createSection("craftSkill");
-				craftSkill = FWS4.instance.getConfig().getConfigurationSection(
-						"craftSkill");
+				FWS4.config.createSection("craftSkill");
+				craftSkill = FWS4.config.getConfigurationSection("craftSkill");
 			}
+			String playerID = p.getUniqueId().toString();
 			ConfigurationSection playerSkills = craftSkill
-					.getConfigurationSection(p.getUniqueId().toString());
+					.getConfigurationSection(playerID);
 			if (playerSkills == null) {
-				craftSkill.createSection(p.getUniqueId().toString());
-				playerSkills = craftSkill.getConfigurationSection(p
-						.getUniqueId().toString());
+				craftSkill.createSection(playerID);
+				playerSkills = craftSkill.getConfigurationSection(playerID);
 			}
 
-			int q = playerSkills.getInt(e.getInventory().getResult().getType()
-					.toString().split("_")[1]);
+			String typeString = resultMaterial.toString().split("_")[1];
+			int q = playerSkills.getInt(typeString);
 			if (q == 0) {
-				playerSkills.set(e.getInventory().getResult().getType()
-						.toString().split("_")[1], 1);
+				playerSkills.set(typeString, 1);
 			}
 			e.getInventory().setResult(
-					ItemUtils.generateCraftedItem(q, e.getInventory()
-							.getResult().getType()));
+					ItemUtils.generateCraftedItem(q, resultMaterial));
 			if (r.nextInt(100) < (Math.log(251 - q) * (251 - q))
 					/ (252 * Math.log(252) / 100)) {
 				q++;
-				playerSkills.set(e.getInventory().getResult().getType()
-						.toString().split("_")[1], q);
-				FWS4.chatManager.sendMessage(0,
+				playerSkills.set(typeString, q);
+				ChatManager.getInstance().sendMessage(0,
 						"§9Your skill has increased to " + q, p);
 			}
 			FWS4.instance.saveConfig();
@@ -100,12 +99,13 @@ public class ItemEventsListener implements Listener {
 			}
 		}
 	}
-	
+
 	public void onInventoryClick(InventoryClickEvent e) {
 		if (!(e.getInventory() instanceof PlayerInventory)) {
 			ItemStack i = e.getCurrentItem();
 			ItemMeta im = i.getItemMeta();
-			if(im == null) return;
+			if (im == null)
+				return;
 			if (im.hasLore()) {
 				List<String> l = im.getLore();
 				while (l.contains("§6Equipped"))
