@@ -71,7 +71,7 @@ public class ItemUtils {
 
 		ItemMeta im = i.getItemMeta();
 		im.setDisplayName("§" + iq.colorCode
-				+ DataInterface.id.get(i.getType()).name);
+				+ DataInterface.getItemData(i.getType()).name);
 		i.setItemMeta(im);
 
 		enchantItemStack(i, iq);
@@ -178,7 +178,7 @@ public class ItemUtils {
 				enchantItemStack(i, ItemQuality.POOR);
 				ItemMeta im = i.getItemMeta();
 				im.setDisplayName("§" + ItemQuality.POOR.colorCode
-						+ DataInterface.id.get(i.getType()).name);
+						+ DataInterface.getItemData(i.getType()).name);
 				i.setItemMeta(im);
 				setItemDurability(i, ItemQuality.POOR);
 				l.add(i);
@@ -206,7 +206,7 @@ public class ItemUtils {
 				enchantItemStack(i, q);
 				ItemMeta im = i.getItemMeta();
 				im.setDisplayName("§" + q.colorCode
-						+ DataInterface.id.get(i.getType()).name);
+						+ DataInterface.getItemData(i.getType()).name);
 				i.setItemMeta(im);
 				setItemDurability(i, q);
 				l.add(i);
@@ -222,7 +222,7 @@ public class ItemUtils {
 		ConfigurationSection durability = items
 				.getConfigurationSection("durability");
 		ConfigurationSection specific = durability
-				.getConfigurationSection((DataInterface.id.get(i.getType()).isArmor) ? "armor"
+				.getConfigurationSection((DataInterface.getItemData(i.getType()).isArmor) ? "armor"
 						: "tools");
 		int dur = specific.getInt(q.name().toLowerCase());
 		List<String> lore = im.getLore();

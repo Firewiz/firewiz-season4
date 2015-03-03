@@ -27,20 +27,32 @@ public class DataInterface {
 		public String name;
 		public boolean isTool;
 		public boolean isArmor;
+		public boolean isTree;
 
 		ItemData(String n) {
 			name = n;
-			isTool = isArmor = false;
+			isTool = isArmor = isTree = false;
 		}
 
 		ItemData(String n, boolean iT, boolean iA) {
-			name = n;
+			this(n);
 			isTool = iT;
 			isArmor = iA;
 		}
+
+		ItemData(String n, boolean iT, boolean iA, boolean iR) {
+			this(n, iT, iA);
+			isTree = iR;
+		}
 	}
 
-	public static HashMap<Material, ItemData> id;
+	static HashMap<Material, ItemData> id;
+
+	public static ItemData getItemData(Material m) {
+		if (m == null)
+			throw new IllegalArgumentException();
+		return (id.get(m) == null) ? new ItemData("Unknown Item") : id.get(m);
+	}
 
 	public static void init() {
 		String[] s = Data.getConfig().getList("crafted").toArray(new String[0]);
@@ -61,13 +73,14 @@ public class DataInterface {
 			esd.put(EntityType.valueOf(key), ed);
 		}
 
+		id = new HashMap<Material, ItemData>();
 		ConfigurationSection item = Data.getConfig().getConfigurationSection(
 				"item");
 		for (String key : item.getKeys(false)) {
 			ConfigurationSection specific = item.getConfigurationSection(key);
 			ItemData id = new ItemData(specific.getString("name"),
 					specific.getBoolean("tool", false), specific.getBoolean(
-							"armor", false));
+							"armor", false), specific.getBoolean("tree", false));
 			DataInterface.id.put(Material.valueOf(key), id);
 		}
 	}
