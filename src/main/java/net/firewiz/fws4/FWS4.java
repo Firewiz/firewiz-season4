@@ -13,6 +13,7 @@ import net.firewiz.fws4.commands.JoinCommandExecutor;
 import net.firewiz.fws4.commands.LeaveCommandExecutor;
 import net.firewiz.fws4.commands.ListCommandExecutor;
 import net.firewiz.fws4.data.Data;
+import net.firewiz.fws4.data.DataInterface;
 import net.firewiz.fws4.gmMods.GMEventsListener;
 import net.firewiz.fws4.items.ItemEventsListener;
 import net.firewiz.fws4.stats.StatsEventsListener;
@@ -33,6 +34,7 @@ public class FWS4 extends JavaPlugin {
 		instance = this;
 		config = getConfig();
 		this.saveDefaultConfig();
+		DataInterface.init();
 		Data.saveDefaultConfig();
 		registerEventHandlers();
 		registerCommandExecutors();

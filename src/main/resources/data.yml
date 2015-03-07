@@ -623,6 +623,10 @@ item:
     name: Lever
   LOG:
     name: Log
+    tree: true
+  LOG_2:
+    name: Log
+    tree: true
   LONG_GRASS:
     name: Long Grass
   MAGMA_CREAM:

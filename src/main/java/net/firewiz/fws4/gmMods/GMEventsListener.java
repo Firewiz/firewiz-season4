@@ -1,9 +1,13 @@
 package net.firewiz.fws4.gmMods;
 
+import net.firewiz.fws4.FWS4;
+import net.firewiz.fws4.data.DataInterface;
+
 import org.bukkit.entity.EntityType;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.entity.CreatureSpawnEvent;
 
 public class GMEventsListener implements Listener {
@@ -15,6 +19,22 @@ public class GMEventsListener implements Listener {
 				e.getEntity().remove();
 				return;
 			}
+		}
+	}
+
+	@EventHandler(priority = EventPriority.HIGH)
+	public void onBlockBreak(BlockBreakEvent e) {
+		boolean isTree = DataInterface.getItemData(e.getBlock().getType()).isTree;
+		boolean hasItemName = e.getPlayer().getItemInHand().getType().name()
+				.split("_").length > 1;
+		if (isTree
+				&& hasItemName
+				&& e.getPlayer().getItemInHand().getType().name().split("_")[1]
+						.equalsIgnoreCase("axe")) {
+			(new TreeBreaker(e.getBlock().getLocation(), e.getPlayer()
+					.getItemInHand(), e.getPlayer().getWorld()))
+					.runTask(FWS4.instance);
+			e.setCancelled(true);
 		}
 	}
 }

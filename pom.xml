@@ -43,8 +43,14 @@
 			<groupId>org.bukkit</groupId>
 			<artifactId>bukkit</artifactId>
 			<version>1.8-R0.1-SNAPSHOT</version>
-			<type>jar</type>
 			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.bukkit</groupId>
+			<artifactId>craftbukkit</artifactId>
+			<version>1.8-R0.1-SNAPSHOT</version>
+			<systemPath>/home/beebop/FWS4/CraftBukkit/target/craftbukkit-1.8-R0.1-SNAPSHOT.jar</systemPath>
+			<scope>system</scope>
 		</dependency>
 	</dependencies>
 </project>
