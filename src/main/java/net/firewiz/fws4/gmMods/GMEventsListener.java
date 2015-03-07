@@ -26,15 +26,15 @@ public class GMEventsListener implements Listener {
 	public void onBlockBreak(BlockBreakEvent e) {
 		boolean isTree = DataInterface.getItemData(e.getBlock().getType()).isTree;
 		boolean hasItemName = e.getPlayer().getItemInHand().getType().name()
-				.split("_").length > 0;
+				.split("_").length > 1;
 		if (isTree
 				&& hasItemName
 				&& e.getPlayer().getItemInHand().getType().name().split("_")[1]
 						.equalsIgnoreCase("axe")) {
-			FWS4.instance.getLogger().info(
-					"Breaking tree at " + e.getBlock().getLocation()); // DEBUG
 			(new TreeBreaker(e.getBlock().getLocation(), e.getPlayer()
-					.getItemInHand())).runTask(FWS4.instance);
+					.getItemInHand(), e.getPlayer().getWorld()))
+					.runTask(FWS4.instance);
+			e.setCancelled(true);
 		}
 	}
 }
