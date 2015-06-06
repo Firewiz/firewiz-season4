@@ -1,8 +1,9 @@
 package net.firewiz.fws4.nms;
 
-import net.minecraft.server.v1_8_R1.NBTTagCompound;
 
-import org.bukkit.craftbukkit.v1_8_R1.entity.CraftEntity;
+import net.minecraft.server.v1_8_R2.NBTTagCompound;
+
+import org.bukkit.craftbukkit.v1_8_R2.entity.CraftEntity;
 import org.bukkit.entity.Entity;
 
 public class NBTMethods {
@@ -11,7 +12,7 @@ public class NBTMethods {
 
 		if (!(entity instanceof Entity)) return null;
 
-		net.minecraft.server.v1_8_R1.Entity nms = ((CraftEntity) entity)
+		net.minecraft.server.v1_8_R2.Entity nms = ((CraftEntity) entity)
 				.getHandle();
 
 		nms.c(compound);
@@ -21,7 +22,7 @@ public class NBTMethods {
 
 	public static void setTag(Entity object, NBTTagCompound t) {
 		CraftEntity craft = ((CraftEntity) object);
-		net.minecraft.server.v1_8_R1.Entity nms = craft.getHandle();
+		net.minecraft.server.v1_8_R2.Entity nms = craft.getHandle();
 		nms.f(t);
 		craft.setHandle(nms);
 	}
